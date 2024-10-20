@@ -1,0 +1,15 @@
+[user]
+	name = Phystro
+	email = phystroq@gmail.com
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold # line info
+    old = red # deletions
+    new = green # additions
