@@ -11,7 +11,7 @@ send_notification() {
 }
 
 # Check battery status and capacity
-if [ "$battery_status" = "Charging" ] && [ "$battery_capacity" -ge 89 ]; then
+if [ "$battery_status" = "Charging" ] && [ "$battery_capacity" -ge 90 ]; then
     # Notify for full battery
     if [ ! -f /tmp/full_battery_notified ] || [ $(($(date +%s) - $(stat -c %Y /tmp/full_battery_notified))) -ge 2 ]; then
         send_notification "  $battery_capacity% Unplug from AC."
