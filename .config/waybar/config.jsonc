@@ -21,8 +21,8 @@
          "all-outputs": true,
          "warp-on-scroll": false,
          "format": "{name}: {icon}",
-         "on-scroll-up": "hyprctl dispatch workspace e+1",
-         "on-scroll-down": "hyprctl dispatch workspace e-1",
+         "on-scroll-up": "hyprctl dispatch workspace e-1",
+         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "format-icons": {
               "1": "",
               "2": "",
@@ -52,13 +52,15 @@
         "format-gr": "GR",
         "format-sw": "SW",
         "format-ki": "KI",
-        "format-ru": "RU"
+        "format-ru": "RU",
+        "min-length": 1,
+        "tooltip": false
     },
 
     "keyboard-state": {
-        "numlock": true,
+        // "numlock": true,
         "capslock": true,
-        "format": "{name} {icon}",
+        "format": "{icon}",
         "format-icons": {
             "locked": "",
             "unlocked": ""
