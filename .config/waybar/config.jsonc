@@ -5,8 +5,8 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 24,
-    "modules-left": ["clock","hyprland/language","hyprland/workspaces","custom/spotify"],
+    "height": 36,
+    "modules-left": ["custom/power","clock","hyprland/language","hyprland/workspaces","custom/spotify"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["network", "bluetooth","cpu","disk","memory","backlight","pulseaudio","pulseaudio#microphone","temperature","battery","custom/battery-notification","tray"],
 
@@ -136,7 +136,7 @@
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "tooltip": false,
-        "format-muted": " Muted",
+        "format-muted": " ",
         "on-click": "pamixer -t",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
@@ -155,7 +155,7 @@
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
-        "format-source-muted": " Muted",
+        "format-source-muted": " ",
         "on-click": "pamixer --default-source -t",
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
@@ -206,5 +206,23 @@
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous",
         "max-length": 32,
+    },
+
+    "custom/power": {
+        "format" : "⏻ {}",
+        //"exec": "~/.config/waybar/scripts/power_menu.sh",
+        //"interval": 30,
+		"tooltip": false,
+        //"on-click": "bash ~/.config/waybar/scripts/power_menu.sh toggle",
+        "on-click": "~/.config/waybar/scripts/power_menu.sh",
+        //"return-type": "json",
+		//"menu": "on-click",
+		// "menu-file": "$HOME/.config/waybar/scripts/power_menu.xml", // Menu file in resources folder
+		//"menu-actions": {
+		//	"shutdown": "shutdown",
+		//	"reboot": "reboot",
+		//	"suspend": "systemctl suspend",
+		//	"hibernate": "systemctl hibernate"
+		//}
     }
 }

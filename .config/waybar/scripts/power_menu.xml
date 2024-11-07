@@ -1,0 +1,15 @@
+<!-- <menu id="power-menu" label="Power"> -->
+<!--     <item label="Shutdown" action="shutdown"/> -->
+<!--     <item label="Reboot" action="reboot"/> -->
+<!--     <item label="Suspend" action="systemctl suspend"/> -->
+<!--     <item label="Hibernate" action="systemctl hibernate"/> -->
+<!-- </menu> -->
+
+
+
+<menu id="power-menu" label="Power">
+    <item label="Shutdown" action="shutdown" icon=""/>
+    <item label="Reboot" action="reboot" icon=""/>
+    <item label="Suspend" action="systemctl suspend" icon=""/>
+    <item label="Hibernate" action="systemctl hibernate" icon=""/>
+</menu>
