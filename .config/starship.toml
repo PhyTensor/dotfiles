@@ -14,3 +14,6 @@
 # # [git_b# ranch]
 # # format = "[]($style)[[ ](bg:#89b4fa fg:#49628a bold)$branch](bg:#89b4fa fg:#362f2b)[ ]($style)"
 # # style = "bg:#1a1b26 fg:#89b4fa"
+
+# ~/.config/starship.toml
+
