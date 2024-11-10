@@ -8,7 +8,7 @@
     "height": 36,
     "modules-left": ["custom/power","clock","hyprland/language","hyprland/workspaces","custom/spotify"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "bluetooth","cpu","disk","memory","backlight","pulseaudio","pulseaudio#microphone","temperature","battery","custom/battery-notification","tray"],
+    "modules-right": ["network", "bluetooth","cpu","disk","memory","backlight","pulseaudio","pulseaudio#microphone","temperature","tray","battery"],
 
     "hyprland/window": {
         "format": "{}",
