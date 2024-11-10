@@ -1,8 +1,8 @@
 * {
 border: none;
-border-radius: 16;
+border-radius: 16px;
 font-family: "FiraCode Nerd Font";
-/*font-weight: bold;*/
+font-weight: bold;
 font-size: 12px;
 min-height: 0;
 }
@@ -10,7 +10,7 @@ min-height: 0;
 window#waybar {
 background: transparent;
 color: #C099FF;
-box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 tooltip {
@@ -22,9 +22,6 @@ border-color: #11111b;
 }
 
 #workspaces button {
-/*padding: 4px;*/
-/*color: #313244;*/
-/*margin-right: 4px;*/
 color: #383a4b;
 transition: color 0.3s, background 0.3s;
 }
@@ -71,8 +68,8 @@ border-radius: 8px;
 #backlight {
 background: #1e1e2e;
 opacity: 0.8;
-padding: 2px 8px;
-margin: 8px 0px;
+padding-left: 4px;
+padding-right: 6px;
 margin-top: 6px;
 border: 1px solid #181825;
 }
@@ -225,6 +222,14 @@ animation-direction: alternate;
 /* Warning state - Yellow */
 #battery.warning:not(.charging) {
 background-color: #FFCC00;
+color: #000000;
+animation-name: flash;
+animation-duration: 0.5s;
+animation-iteration-count: infinite;
+}
+
+#battery.beware:not(.charging) {
+background-color: #EF7000;
 color: #000000;
 animation-name: flash;
 animation-duration: 0.5s;

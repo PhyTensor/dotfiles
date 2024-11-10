@@ -5,10 +5,10 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 36,
+    //"height": 36,
     "modules-left": ["custom/power","clock","hyprland/language","hyprland/workspaces","custom/spotify"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "bluetooth","cpu","disk","disk#home","memory","backlight","pulseaudio","pulseaudio#microphone","temperature","tray","battery"],
+    "modules-right": ["network", "bluetooth","cpu","disk","disk#home","memory","backlight","pulseaudio","pulseaudio#microphone","temperature","tray","battery","custom/battery-notification"],
 
     "hyprland/window": {
         "format": "{}",
@@ -123,6 +123,7 @@
     "battery": {
         "states": {
             "good": 90,
+            "beware": 30,
             "warning": 21,
             "critical": 16
         },
@@ -136,7 +137,7 @@
 
     "custom/battery-notification": {
         "exec": "~/.config/waybar/scripts/battery_notification.sh",
-        "interval": 2
+        "interval": 5
     },
 
     "pulseaudio": {
