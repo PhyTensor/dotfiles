@@ -7,7 +7,7 @@ battery_status=$(cat /sys/class/power_supply/BAT0/status)
 # Function to send notifications
 send_notification() {
     local message="$1"
-    notify-send "Battery Status" "$message"
+    notify-send "Battery Status" "$message" -u critical
 }
 
 # Check battery status and capacity

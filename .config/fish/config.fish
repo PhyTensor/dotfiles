@@ -43,3 +43,6 @@ set PATH $PATH $HOME/.dotnet/tools/
 #   end
 # end
 #<<< conda initialize <<<
+
+# ZOXIDE
+zoxide init fish | source

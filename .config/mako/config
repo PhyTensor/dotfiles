@@ -10,11 +10,11 @@ on-button-right=dismiss-all
 on-touch=dismiss
 
 # STYLE OPTIONS
-font=FiraCode Nerd Font 14
+font=FiraCode Nerd Font 10
 width=300
-height=110
+height=600
 margin=10
-padding=15
+padding=6
 border-size=2
 border-radius=16
 icons=1
@@ -30,10 +30,25 @@ max-visible=5
 layer=overlay
 # anchor=center
 
-# background-color=#1e1e2e # #2e3440
-text-color=#d9e0ee
-# border-color=#313244 # #88c0d0
-progress-color=over #89b4fa
+
+# background-color=#002B36
+# text-color=#839496
+# border-color=#073642
+# default-timeout=5000
+#
+# [urgency=high]
+# text-color=#CB4B16
+
+
+# COLORS
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#b4befe
+progress-color=over #313244
+
+[urgency=high]
+# border-color=#f38ba8 # #bf616a
+text-color=#f38ba8
 
 [urgency=low]
 # border-color=#313244 # #cccccc
@@ -43,12 +58,12 @@ default-timeout=2000
 # border-color=#313244 # #d08770
 default-timeout=5000
 
-[urgency=high]
-# border-color=#f38ba8 # #bf616a
-text-color=#f38ba8
 default-timeout=0
 
 [category=mpd]
-# border-color=#f9e2af
 default-timeout=2000
 group-by=category
+
+[grouped]
+format=<b>%s</b>\n%b
+
