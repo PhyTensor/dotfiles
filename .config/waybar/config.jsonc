@@ -1,14 +1,34 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
-    "mod": "dock",
+    "mode": "dock",
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    //"height": 36,
-    "modules-left": ["custom/power","clock","hyprland/language","hyprland/workspaces","custom/spotify"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "bluetooth","cpu","disk","disk#home","memory","backlight","pulseaudio","pulseaudio#microphone","temperature","tray","battery","custom/battery-notification"],
+    "modules-left": [
+        "clock",
+        "hyprland/language",
+        "hyprland/workspaces",
+        "custom/spotify"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "cpu",
+        "disk",
+        "disk#home",
+        "memory",
+        "backlight",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "temperature",
+        "tray",
+        "battery",
+        "custom/battery-notification"
+    ],
 
     "hyprland/window": {
         "format": "{}",
@@ -36,6 +56,14 @@
          }
      },
 
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
     "custom/power_profile":{
         //shows the current power profile and switches to next on click
         "exec": "asusctl profile -p | sed s:'Active profile is'::",
@@ -54,13 +82,14 @@
         "format-ki": "KI",
         "format-ru": "RU",
         "min-length": 1,
-        "tooltip": false
+        "tooltip": true
     },
 
     "keyboard-state": {
-        // "numlock": true,
+        "numlock": true,
         "capslock": true,
-        "format": "{icon}",
+        //"format": "{icon}",
+        "format": " {name} {icon}",
         "format-icons": {
             "locked": "",
             "unlocked": ""
@@ -70,7 +99,7 @@
     "cpu": {
         "interval": 1,
         "format": " {usage}%",
-        "tooltip": false,
+        "tooltip": true,
         "on-click": "foot -e htop"
     },
 
@@ -88,7 +117,7 @@
 
     "disk#home": {
         "interval": 60,
-        "format": "/home {percentage_used}%",
+        "format": "🏠 {percentage_used}%",
         "path": "/home"
     },
 
@@ -108,7 +137,7 @@
         // "format": " {:%a %d %b  %H:%M}",	//24 hour format
         //"format-alt": " {:%d/%m/%Y  %H:%M:%S}",
         "format-alt": " {:%a %d %b  %H:%M:%S}",
-        "tooltip": false
+        "tooltip": true
     },
 
     "backlight": {
@@ -142,7 +171,7 @@
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "tooltip": false,
+        "tooltip": true,
         "format-muted": " ",
         "on-click": "pamixer -t",
         "on-scroll-up": "pamixer -i 5",
@@ -231,5 +260,20 @@
 		//	"suspend": "systemctl suspend",
 		//	"hibernate": "systemctl hibernate"
 		//}
+    },
+
+    "custom/updater":{
+        "format": "{} Updates",
+        "exec": "pacman -Qu | wc -l",
+        "exec-if": "[[ $(pacman -Qu | wc -l) != 0 ]]",
+        "interval": 15,
+        //"on-click": "wezterm start -- fish -c paru"
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "exec": "curl 'wttr.in/Nairobi?format=1",
+        "interval": 1800,
+        //"on-click": "firefox 'https://www.meteoblue.com/en/weather/week/ljubljana_slovenia_3196359'"
     }
 }

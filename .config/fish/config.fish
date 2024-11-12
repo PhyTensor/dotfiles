@@ -14,6 +14,8 @@ alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listi
 alias l. 'eza -alhd --color=always --group-directories-first --icons .*' # show only dotfiles
 alias l 'eza -alh --color=always --long --git --no-filesize --icons --no-time --no-user --no-permissions'
 
+alias v 'nvim'
+
 # STARSHIP
 starship init fish | source
 
