@@ -7,6 +7,7 @@ battery_status=$(cat /sys/class/power_supply/BAT0/status)
 # Function to send notifications
 send_notification() {
     local message="$1"
+    # send notification with a critical urgency level
     notify-send -i ~/Pictures/battery_warning.png "Battery Status" "$message" -u critical
 }
 

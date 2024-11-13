@@ -1,18 +1,24 @@
 {
     "layer": "bottom",
     "position": "top",
+    "spacing": 0, // gaps between modules
     "mode": "dock",
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
     "modules-left": [
+        //"custom/power",
         "clock",
         "hyprland/language",
-        "hyprland/workspaces",
+        //"idle_inhibitor",
+        "custom/weather",
+        "custom/power_profile",
+        "custom/updater",
         "custom/spotify"
     ],
     "modules-center": [
-        "hyprland/window"
+        "hyprland/workspaces"
+        //"hyprland/window"
     ],
     "modules-right": [
         "network",
@@ -151,7 +157,7 @@
 
     "battery": {
         "states": {
-            "good": 90,
+            "good": 89,
             "beware": 30,
             "warning": 21,
             "critical": 16
@@ -176,6 +182,7 @@
         "on-click": "pamixer -t",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
+        "nospacing": 1,
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
@@ -215,14 +222,18 @@
         "format": "{ifname}",
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-ethernet": "󰈀 ",
-        "format-wifi": " ",
+        //"format-wifi": " ",
+        "format-wifi": "{icon}",
         //"format-ethernet": "󰈀 {ipaddr}/{cidr}",
         "tooltip-format": " {ifname} via {gwaddri}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) - {ifname} via {gwaddr}",
         "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
-        "format-disconnected": "Disconnected ⚠",
+        //"format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "󰤭 ⚠",
+        "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤥 ","󰤨 "],
         "format-linked": "{ifname} (No IP)",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "nospacing": 1
     },
 
     "bluetooth": {
@@ -263,7 +274,7 @@
     },
 
     "custom/updater":{
-        "format": "{} Updates",
+        "format": " {}",
         "exec": "pacman -Qu | wc -l",
         "exec-if": "[[ $(pacman -Qu | wc -l) != 0 ]]",
         "interval": 15,

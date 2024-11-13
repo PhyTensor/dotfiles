@@ -11,7 +11,7 @@ on-touch=dismiss
 
 # STYLE OPTIONS
 font=FiraCode Nerd Font 10
-width=360
+width=400
 height=640
 margin=10
 padding=6
@@ -23,12 +23,12 @@ icon-location=left
 markup=1
 actions=1
 history=1
-text-alignment=center
+text-alignment=left
 default-timeout=5800
 ignore-timeout=0
-max-visible=5
+max-visible=6
 layer=overlay
-# anchor=center
+anchor=top-left
 
 
 # background-color=#002B36
