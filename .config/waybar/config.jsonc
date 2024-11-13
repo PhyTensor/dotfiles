@@ -105,13 +105,13 @@
         "interval": 1,
         "format": " {usage}%",
         "tooltip": true,
-        "on-click": "foot -e htop"
+        "on-click": "kitty htop"
     },
 
     "memory": {
         "interval": 5,
         "format": " {: >3}% ",
-        "on-click": "foot -e htop"
+        "on-click": "kitty htop"
     },
 
     "disk": {
