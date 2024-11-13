@@ -74,7 +74,7 @@
         //shows the current power profile and switches to next on click
         "exec": "asusctl profile -p | sed s:'Active profile is'::",
         "interval": 30,
-        "format": "󰈐{}",
+        "format": "󰈐 {}",
         "on-click": "asusctl profile -n; pkill -SIGRTMIN+8 waybar",
         "signal": 8
     },
@@ -94,7 +94,6 @@
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        //"format": "{icon}",
         "format": " {name} {icon}",
         "format-icons": {
             "locked": "",
@@ -129,12 +128,12 @@
 
     "tray": {
         "icon-size": 18,
-        "spacing": 10
+        "spacing": 8
     },
 
     "clock": {
-         "timezone": "Africa/Nairobi",
-         "interval": 1,
+        "timezone": "Africa/Nairobi",
+        "interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M:%S}",
         //"format": "{: %I:%M %p   %a, %b %e}",
@@ -278,7 +277,7 @@
         "exec": "pacman -Qu | wc -l",
         "exec-if": "[[ $(pacman -Qu | wc -l) != 0 ]]",
         "interval": 15,
-        //"on-click": "wezterm start -- fish -c paru"
+        "on-click": "~/.config/waybar/scripts/updater.sh"
     },
 
     "custom/weather": {
@@ -286,5 +285,6 @@
         "exec": "curl 'wttr.in/Nairobi?format=1",
         "interval": 1800,
         //"on-click": "firefox 'https://www.meteoblue.com/en/weather/week/ljubljana_slovenia_3196359'"
+        "on-click": "firefox 'https://www.meteoblue.com/en/weather/week/nairobi_kenya_184745'"
     }
 }
