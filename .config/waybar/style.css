@@ -1,8 +1,8 @@
 * {
 border: none;
-border-radius: 16;
+border-radius: 16px;
 font-family: "FiraCode Nerd Font";
-/*font-weight: bold;*/
+font-weight: bold;
 font-size: 12px;
 min-height: 0;
 }
@@ -10,7 +10,7 @@ min-height: 0;
 window#waybar {
 background: transparent;
 color: #C099FF;
-box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 tooltip {
@@ -22,9 +22,6 @@ border-color: #11111b;
 }
 
 #workspaces button {
-/*padding: 5px;*/
-/*color: #313244;*/
-/*margin-right: 5px;*/
 color: #383a4b;
 transition: color 0.3s, background 0.3s;
 }
@@ -36,27 +33,29 @@ color: #a6adc8;
 #workspaces button.focused {
 color: #a6adc8;
 background: #eba0ac;
-border-radius: 10px;
+border-radius: 8px;
 }
 
 #workspaces button.urgent {
 color: #11111b;
 background: #a6e3a1;
-border-radius: 10px;
+border-radius: 8px;
 }
 
 #workspaces button:hover {
 background: #11111b;
 color: #cdd6f4;
-border-radius: 10px;
+border-radius: 8px;
 }
 
 #custom-power_profile,
 #custom-spotify,
 #custom-power,
 #custom-weather,
+#custom-updater,
 #window,
 #clock,
+#idle_inhibitor,
 #battery,
 #pulseaudio,
 #network,
@@ -71,8 +70,8 @@ border-radius: 10px;
 #backlight {
 background: #1e1e2e;
 opacity: 0.8;
-padding: 2px 8px;
-margin: 8px 0px;
+padding-left: 4px;
+padding-right: 6px;
 margin-top: 6px;
 border: 1px solid #181825;
 }
@@ -86,7 +85,7 @@ color: #dc143c;
 }
 
 #backlight {
-border-radius: 10px 0px 0px 10px;
+border-radius: 8px 0px 0px 8px;
 }
 
 #cpu {
@@ -98,8 +97,8 @@ border-right: 0px;
 
 #memory {
 color: #ffb86c;
-border-radius: 0px 10px 10px 0px;
-margin-right: 10px
+border-radius: 0px 8px 8px 0px;
+margin-right: 8px
 }
 
 #disk {
@@ -107,22 +106,34 @@ color: #50fa7b;
 border-radius: 0px 0px 0px 0px;
 }
 
+#disk.home {
+color: #00ff7b;
+border-radius: 0px 0px 0px 0px;
+}
+
 #tray {
-border-radius: 8px 8px 8px 8px;
-margin-right: 8px;
+border-radius: 0px 0px 0px 0px;
+margin-right: 0px;
 }
 
 #workspaces {
 background: #1e1e2e;
-border-radius: 10px;
-margin-left: 10px;
+border-radius: 8px;
+margin-left: 8px;
 padding-right: 0px;
-padding-left: 5px;
+padding-left: 4px;
 }
 
 #language {
 color: #ffffff;
-border-radius: 0px 10px 10px 0px;
+border-radius: 0px 8px 8px 0px;
+}
+
+#custom-updater {
+color: #a6e3a1;
+margin-left: 8px;
+padding-right: 8px;
+padding-left: 8px;
 }
 
 #custom-power_profile {
@@ -132,14 +143,14 @@ border-right: 0px;
 }
 
 #custom-spotify {
-border-radius: 10px 10px 10px 10px;
-margin-left: 10px;
+border-radius: 8px 8px 8px 8px;
+margin-left: 8px;
 color: #1DB954;
 }
 
 #custom-power {
-border-radius: 10px 10px 10px 10px;
-margin-left: 10px;
+border-radius: 8px 0px 0px 8px;
+margin-left: 8px;
 color: #1DB954;
 }
 
@@ -148,11 +159,11 @@ color: #1DB954;
 background-color: #333;
 color: #fff;
 border-radius: 4px;
-padding: 10px;
+padding: 8px;
 }
 
 #custom-power.power-menu .option {
-padding: 5px;
+padding: 4px;
 }
 
 #custom-power.power-menu .option:hover {
@@ -160,7 +171,7 @@ background-color: #555;
 }
 
 #window {
-border-radius: 10px;
+border-radius: 8px;
 margin-left: 60px;
 margin-right: 60px;
 }
@@ -172,17 +183,21 @@ margin-left: 8px;
 border-right: 0px;
 }
 
+#idle_inhibitor {
+color: #DD9000;
+}
+
 #network {
 color: #f9e2af;
-border-radius: 10px 0px 0px 10px;
+border-radius: 8px 0px 0px 8px;
 border-left: 0px;
 border-right: 0px;
 }
 
 #bluetooth {
 color: #89b4fa;
-border-radius: 0px 10px 10px 0px;
-margin-right: 10px
+border-radius: 0px 8px 8px 0px;
+margin-right: 8px
 }
 
 #pulseaudio {
@@ -196,8 +211,8 @@ border-radius: 0px 0px 0px 0px;
 color: #cba6f7;
 border-left: 0px;
 border-right: 0px;
-border-radius: 0px 10px 10px 0px;
-margin-right: 10px;
+border-radius: 0px 8px 8px 0px;
+margin-right: 8px;
 }
 
 #battery {
@@ -226,8 +241,25 @@ animation-duration: 0.5s;
 animation-iteration-count: infinite;
 }
 
+#battery.beware:not(.charging) {
+background-color: #EF7000;
+color: #000000;
+animation-name: flash;
+animation-duration: 0.5s;
+animation-iteration-count: infinite;
+}
+
+/* battery.good.charging */
+#battery.good.charging {
+background-color: #00FF00;
+color: #000000;
+animation-name: flash;
+animation-duration: 0.5s;
+animation-iteration-count: infinite;
+}
+
 #custom-weather {
-border-radius: 0px 10px 10px 0px;
+border-radius: 0px 8px 8px 0px;
 border-right: 0px;
 margin-left: 0px;
 }

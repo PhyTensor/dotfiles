@@ -1,14 +1,40 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
-    "mod": "dock",
+    "spacing": 0, // gaps between modules
+    "mode": "dock",
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 36,
-    "modules-left": ["custom/power","clock","hyprland/language","hyprland/workspaces","custom/spotify"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "bluetooth","cpu","disk","memory","backlight","pulseaudio","pulseaudio#microphone","temperature","battery","custom/battery-notification","tray"],
+    "modules-left": [
+        //"custom/power",
+        "clock",
+        "hyprland/language",
+        //"idle_inhibitor",
+        "custom/weather",
+        "custom/power_profile",
+        "custom/updater",
+        "custom/spotify"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+        //"hyprland/window"
+    ],
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "cpu",
+        "disk",
+        "disk#home",
+        "memory",
+        "backlight",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "temperature",
+        "tray",
+        "battery",
+        "custom/battery-notification"
+    ],
 
     "hyprland/window": {
         "format": "{}",
@@ -36,11 +62,19 @@
          }
      },
 
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
     "custom/power_profile":{
         //shows the current power profile and switches to next on click
         "exec": "asusctl profile -p | sed s:'Active profile is'::",
         "interval": 30,
-        "format": "󰈐{}",
+        "format": "󰈐 {}",
         "on-click": "asusctl profile -n; pkill -SIGRTMIN+8 waybar",
         "signal": 8
     },
@@ -54,13 +88,13 @@
         "format-ki": "KI",
         "format-ru": "RU",
         "min-length": 1,
-        "tooltip": false
+        "tooltip": true
     },
 
     "keyboard-state": {
-        // "numlock": true,
+        "numlock": true,
         "capslock": true,
-        "format": "{icon}",
+        "format": " {name} {icon}",
         "format-icons": {
             "locked": "",
             "unlocked": ""
@@ -70,30 +104,36 @@
     "cpu": {
         "interval": 1,
         "format": " {usage}%",
-        "tooltip": false,
-        "on-click": "foot -e htop"
+        "tooltip": true,
+        "on-click": "kitty htop"
     },
 
     "memory": {
         "interval": 5,
         "format": " {: >3}% ",
-        "on-click": "foot -e htop"
+        "on-click": "kitty htop"
     },
 
     "disk": {
-        "interval": 5,
+        "interval": 30,
         "format": "/ {percentage_used}%",
         "path": "/"
     },
 
+    "disk#home": {
+        "interval": 60,
+        "format": "🏠 {percentage_used}%",
+        "path": "/home"
+    },
+
     "tray": {
         "icon-size": 18,
-        "spacing": 10
+        "spacing": 8
     },
 
     "clock": {
-         "timezone": "Africa/Nairobi",
-         "interval": 1,
+        "timezone": "Africa/Nairobi",
+        "interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M:%S}",
         //"format": "{: %I:%M %p   %a, %b %e}",
@@ -102,7 +142,7 @@
         // "format": " {:%a %d %b  %H:%M}",	//24 hour format
         //"format-alt": " {:%d/%m/%Y  %H:%M:%S}",
         "format-alt": " {:%a %d %b  %H:%M:%S}",
-        "tooltip": false
+        "tooltip": true
     },
 
     "backlight": {
@@ -116,7 +156,8 @@
 
     "battery": {
         "states": {
-            "good": 90,
+            "good": 89,
+            "beware": 30,
             "warning": 21,
             "critical": 16
         },
@@ -130,16 +171,17 @@
 
     "custom/battery-notification": {
         "exec": "~/.config/waybar/scripts/battery_notification.sh",
-        "interval": 2
+        "interval": 5
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "tooltip": false,
+        "tooltip": true,
         "format-muted": " ",
         "on-click": "pamixer -t",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
+        "nospacing": 1,
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
@@ -179,14 +221,18 @@
         "format": "{ifname}",
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-ethernet": "󰈀 ",
-        "format-wifi": " ",
+        //"format-wifi": " ",
+        "format-wifi": "{icon}",
         //"format-ethernet": "󰈀 {ipaddr}/{cidr}",
         "tooltip-format": " {ifname} via {gwaddri}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) - {ifname} via {gwaddr}",
         "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
-        "format-disconnected": "Disconnected ⚠",
+        //"format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "󰤭 ⚠",
+        "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤥 ","󰤨 "],
         "format-linked": "{ifname} (No IP)",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "nospacing": 1
     },
 
     "bluetooth": {
@@ -224,5 +270,21 @@
 		//	"suspend": "systemctl suspend",
 		//	"hibernate": "systemctl hibernate"
 		//}
+    },
+
+    "custom/updater":{
+        "format": " {}",
+        "exec": "pacman -Qu | wc -l",
+        "exec-if": "[[ $(pacman -Qu | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "~/.config/waybar/scripts/updater.sh"
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "exec": "curl 'wttr.in/Nairobi?format=1",
+        "interval": 1800,
+        //"on-click": "firefox 'https://www.meteoblue.com/en/weather/week/ljubljana_slovenia_3196359'"
+        "on-click": "firefox 'https://www.meteoblue.com/en/weather/week/nairobi_kenya_184745'"
     }
 }
