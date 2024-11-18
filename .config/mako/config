@@ -1,3 +1,4 @@
+anchor=top-center
 
 # GLOBAL
 max-history=100
@@ -11,13 +12,14 @@ on-touch=dismiss
 
 # STYLE OPTIONS
 font=FiraCode Nerd Font 10
-width=400
+width=450
 height=640
 margin=10
 padding=6
 border-size=4
-border-radius=16
+border-radius=12
 icons=1
+icon-path=/usr/share/icons/Papirus-Dark
 max-icon-size=64
 icon-location=left
 markup=1
@@ -28,8 +30,6 @@ default-timeout=5800
 ignore-timeout=0
 max-visible=6
 layer=overlay
-anchor=top-left
-
 
 # background-color=#002B36
 # text-color=#839496

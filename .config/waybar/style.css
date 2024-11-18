@@ -53,6 +53,8 @@ border-radius: 8px;
 #custom-power,
 #custom-weather,
 #custom-updater,
+#custom-right-arrow-dark,
+#custom-left-arrow-dark,
 #window,
 #clock,
 #idle_inhibitor,
@@ -69,9 +71,9 @@ border-radius: 8px;
 #disk,
 #backlight {
 background: #1e1e2e;
-opacity: 0.8;
+opacity: 1.0; /* 0.8; */
 padding-left: 4px;
-padding-right: 6px;
+padding-right: 4px;
 margin-top: 6px;
 border: 1px solid #181825;
 }
@@ -121,7 +123,7 @@ background: #1e1e2e;
 border-radius: 8px;
 margin-left: 8px;
 padding-right: 0px;
-padding-left: 4px;
+padding-left: 0px;
 }
 
 #language {
@@ -168,6 +170,12 @@ padding: 4px;
 
 #custom-power.power-menu .option:hover {
 background-color: #555;
+}
+
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+background-color: transparent;
+color: #1a1a1a;
 }
 
 #window {
@@ -258,10 +266,18 @@ animation-duration: 0.5s;
 animation-iteration-count: infinite;
 }
 
+/*#custom-weather {*/
+/*border-radius: 0px 8px 8px 0px;*/
+/*border-right: 0px;*/
+/*margin-left: 0px;*/
+/*}*/
+
 #custom-weather {
-border-radius: 0px 8px 8px 0px;
-border-right: 0px;
-margin-left: 0px;
+padding-right: 16px;
+border-radius: 0px 10px 10px 0px;
+transition: none;
+color: #ffffff;
+background: #383c4a;
 }
 
 /* Flash animation */
