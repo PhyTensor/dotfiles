@@ -35,7 +35,7 @@
         "temperature",
         "tray",
         "battery",
-        "custom/battery-notification"
+        "custom/battery-notification",
     ],
 
     "custom/right-arrow-dark": {
