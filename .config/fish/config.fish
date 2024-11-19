@@ -1,6 +1,5 @@
 ## Set values
 
-
 # STARSHIP
 #starship init fish | source
 # starship prompt
@@ -123,3 +122,4 @@ set PATH $PATH $HOME/.dotnet/tools/
 
 # ZOXIDE
 zoxide init fish | source
+
