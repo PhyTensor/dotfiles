@@ -120,6 +120,8 @@ set PATH $PATH $HOME/.dotnet/tools/
 #   fastfetch --load-config dr460nized
 #end
 
+set MANPAGER "nvim +Man!"
+
 # ZOXIDE
 zoxide init fish | source
 
