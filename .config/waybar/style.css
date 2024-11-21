@@ -161,6 +161,7 @@ background: #1e1e2e;
 
 #custom-updater {
 color: #a6e3a1;
+margin-right: 0px;
 padding-right: 8px;
 padding-left: 8px;
 }
@@ -172,7 +173,6 @@ border-right: 0px;
 }
 
 #custom-spotify {
-margin-left: 0px;
 color: #1DB954;
 }
 
@@ -212,6 +212,7 @@ border-top-right-radius: 0px;
 #language {
 color: #ffffff;
 margin-left: 0px;
+margin-right: 0px;
 border-top-left-radius: 0px;
 border-bottom-left-radius: 0px;
 }
