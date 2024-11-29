@@ -1,13 +1,5 @@
 ## Set values
 
-# STARSHIP
-#starship init fish | source
-# starship prompt
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-     source ('/usr/bin/starship' init fish --print-full-init | psub)
-end
-
 # Fish command history
 function history
     builtin history --show-time='%F %T '
@@ -29,7 +21,6 @@ end
 
 
 ## Usefule aliases
-#
 ## Replace ls with eza
 alias ls 'eza -alh --color=always --group-directories-first --icons' # preferred listing
 alias la 'eza -a --color=always --group-directories-first --icons' # all files and dirs
@@ -120,8 +111,19 @@ set PATH $PATH $HOME/.dotnet/tools/
 #   fastfetch --load-config dr460nized
 #end
 
-set MANPAGER "nvim +Man!"
+# STARSHIP
+#starship init fish | source
+# starship prompt
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+     source ('/usr/bin/starship' init fish --print-full-init | psub)
 
-# ZOXIDE
-zoxide init fish | source
+    # ZOXIDE
+    zoxide init fish | source
+
+    # Atuin
+    atuin init fish | source
+end
+
+set MANPAGER "nvim +Man!"
 
