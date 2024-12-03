@@ -17,7 +17,9 @@
         "custom/spotify"
     ],
     "modules-center": [
+        //"custom/left-arrow-dark",
         "hyprland/workspaces"
+        //"custom/right-arrow-dark"
         //"hyprland/window"
     ],
     "modules-right": [
@@ -33,8 +35,18 @@
         "temperature",
         "tray",
         "battery",
-        "custom/battery-notification"
+        "custom/battery-notification",
     ],
+
+    "custom/right-arrow-dark": {
+		"format": "",
+		"tooltip": false
+	},
+
+    "custom/left-arrow-dark": {
+		"format": "",
+		"tooltip": false
+	},
 
     "hyprland/window": {
         "format": "{}",
@@ -179,6 +191,7 @@
         "tooltip": true,
         "format-muted": " ",
         "on-click": "pamixer -t",
+        //"on-click": "GDK_DISABLE=vulkan pavucontrol",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
         "nospacing": 1,
@@ -211,7 +224,7 @@
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         //"format": "{temperatureC}°C {icon} ",
         "format": "{temperatureC}°C {icon}",
-        "critical-threshold": 72,
+        "critical-threshold": 70,
         //"format-critical": "{temperatureC}°C ",
         "format-critical": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
@@ -281,10 +294,16 @@
     },
 
     "custom/weather": {
+        //"format": "{}",
+        //"exec": "curl 'wttr.in/Nairobi?format=1",
+        //"interval": 1800,
+        ////"on-click": "firefox 'https://www.meteoblue.com/en/weather/week/ljubljana_slovenia_3196359'"
+        //"on-click": "firefox 'https://www.meteoblue.com/en/weather/week/nairobi_kenya_184745'"
+
         "format": "{}",
-        "exec": "curl 'wttr.in/Nairobi?format=1",
-        "interval": 1800,
-        //"on-click": "firefox 'https://www.meteoblue.com/en/weather/week/ljubljana_slovenia_3196359'"
-        "on-click": "firefox 'https://www.meteoblue.com/en/weather/week/nairobi_kenya_184745'"
+        "tooltip": true,
+        "interval": 5,
+        "exec": "$HOME/.config/waybar/scripts/wttr.py",
+        "return-type": "json"
     }
 }
