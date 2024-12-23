@@ -1,19 +1,47 @@
+ignore-empty-password
+font="FiraCode Nerd Font"
+
 daemonize
 show-failed-attempts
+
+# Fade in time
+fade-in=1.2
+
 clock
+timestr=%I:%M %p
+datestr=%a, %B %e
+
+# Add current screenshot as wallpaper
 screenshot
-effect-blur=9x5
+
+# Add an image as a background
+# image=$HOME/Pictures/wallpapers/beauty.jpg
+
+# Effect for background
+# effect-pixelate=5
+effect-blur=20x6 # 9x5
 effect-vignette=0.5:0.5
-color=1f1d2e80
-font="Inter"
+# effect-greyscale
+
+# Show/hide indicator circle
 indicator
+
+# Indicator size
 indicator-radius=200
 indicator-thickness=20
-line-color=1f1d2e
-ring-color=191724
-inside-color=1f1d2e
+
+indicator-caps-lock
+
+# Define all colors
 key-hl-color=eb6f92
 separator-color=00000000
+
+inside-color=1f1d2e
+
+color=1f1d2e80
+
+line-color=1f1d2e
+ring-color=191724
 text-color=e0def4
 text-caps-lock-color=""
 line-ver-color=eb6f92
@@ -29,10 +57,8 @@ ring-clear-color=9ccfd8
 line-clear-color=1f1d2e
 line-wrong-color=1f1d2e
 bs-hl-color=31748f
+
 grace=2
 grace-no-mouse
 grace-no-touch
-datestr=%a, %B %e
-timestr=%I:%M %p
-fade-in=0.2
-ignore-empty-password
+
