@@ -84,8 +84,8 @@ set PATH $PATH $ANDROID_HOME $HOME/Android/Sdk/platform-tools/
 
 # FLUTTER
 # set PATH $PATH /usr/local/bin/flutter/bin/
-set PATH $PATH /opt/flutter/bin/
-set PATH $PATH $HOME/.pub-cache/bin/
+# set PATH $PATH /opt/flutter/bin/
+# set PATH $PATH $HOME/.pub-cache/bin/
 
 
 # DOTNET TOOLS
