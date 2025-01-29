@@ -79,8 +79,8 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 
 
 # ANDROID
-set ANDROID_HOME = $HOME/Android/Sdk/
-set PATH $PATH $ANDROID_HOME $HOME/Android/Sdk/platform-tools/
+# set ANDROID_HOME = $HOME/Android/Sdk/
+# set PATH $PATH $ANDROID_HOME $HOME/Android/Sdk/platform-tools/
 
 # FLUTTER
 # set PATH $PATH /usr/local/bin/flutter/bin/
