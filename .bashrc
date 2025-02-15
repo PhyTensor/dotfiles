@@ -27,3 +27,4 @@ PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
 
 export MANPAGER='nvim +Man!'
+
