@@ -1,5 +1,5 @@
 [user]
-	name = Phystro
+	name = PhyTensor
 	email = phystroq@gmail.com
 
 [init]
@@ -13,3 +13,4 @@
     frag = magenta bold # line info
     old = red # deletions
     new = green # additions
+
