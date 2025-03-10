@@ -98,7 +98,8 @@ data['tooltip'] += f"Feels like: {weather['current_condition'][0]['FeelsLikeC']}
 data['tooltip'] += f"Wind: {weather['current_condition'][0]['windspeedKmph']}Km/h\n"
 data['tooltip'] += f"Humidity: {weather['current_condition'][0]['humidity']}%\n"
 for i, day in enumerate(weather['weather']):
-    data['tooltip'] += f"\n<b>"
+    # data['tooltip'] += f"\n<b>"
+    data['tooltip'] = str(data['tooltip']) + f"\n<b>"
     if i == 0:
         data['tooltip'] += "Today, "
     if i == 1:
