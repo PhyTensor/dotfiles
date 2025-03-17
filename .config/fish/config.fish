@@ -58,10 +58,10 @@ alias vdir 'vdir --color=auto'
 alias wget 'wget -c '
 
 # Get fastest mirrors
-alias mirror 'sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
-alias mirrora 'sudo reflector --latest 50 --number 20 --verbose --sort age --save /etc/pacman.d/mirrorlist'
-alias mirrord 'sudo reflector --latest 50 --number 20 --verbose --sort delay --save /etc/pacman.d/mirrorlist'
-alias mirrors 'sudo reflector --latest 50 --number 20 --verbose --sort score --save /etc/pacman.d/mirrorlist'
+alias mirror 'sudo reflector -f 30 -l 30 --number 10 --protocol https --info --verbose --sort rate --threads $(nproc) --save /etc/pacman.d/mirrorlist'
+alias mirrora 'sudo reflector --latest 50 --number 20 --protocol https --info --verbose --sort age --threads $(nproc) --save /etc/pacman.d/mirrorlist'
+alias mirrord 'sudo reflector --latest 50 --number 20 --protocol https --info --verbose --sort delay --threads $(nproc) --save /etc/pacman.d/mirrorlist'
+alias mirrors 'sudo reflector --latest 50 --number 20 --protocol https --info --verbose --sort score --threads $(nproc) --save /etc/pacman.d/mirrorlist'
 
 # Help people new to Arch
 alias apt 'man pacman'
