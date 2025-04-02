@@ -26,9 +26,9 @@
         "network",
         "bluetooth",
         "cpu",
+        "memory",
         "disk",
         "disk#home",
-        "memory",
         "backlight",
         "pulseaudio",
         "pulseaudio#microphone",
@@ -55,13 +55,13 @@
     },
 
     "hyprland/workspaces": {
-         "disable-scroll": true,
-         "all-outputs": true,
-         "warp-on-scroll": false,
-         "format": "{name}: {icon}",
-         "on-scroll-up": "hyprctl dispatch workspace e-1",
-         "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "format-icons": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}: {icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+		"format-icons": {
               "1": "",
               "2": "",
               "3": "",
@@ -253,8 +253,11 @@
 	    "format-disabled": "", // an empty format will hide the module
 	    "format-connected": " {num_connections}",
 	    "tooltip-format": "{device_alias}",
+		"tooltip-format-off": "Bluetooth is off",
+		"tooltip-format-on": "Bluetooth is on",
 	    "tooltip-format-connected": " {device_enumerate}",
-	    "tooltip-format-enumerate-connected": "{device_alias}"
+	    "tooltip-format-enumerate-connected": "{device_alias}",
+		"on-click": "blueman-manager"
     },
 
     "custom/spotify": {

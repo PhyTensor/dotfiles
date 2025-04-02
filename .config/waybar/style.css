@@ -1,296 +1,129 @@
 * {
 border: none;
-font-family: "FiraCode Nerd Font";
-font-weight: bold;
+font-family: "Overpass Nerd Font", "Roboto", sans-serif;
 font-size: 12px;
 min-height: 0;
 }
 
 window#waybar {
-background: transparent;
-color: #C099FF;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
-}
-
-tooltip {
-background: #1e1e2e;
-border-radius: 8px;
-border-width: 1px;
-border-style: solid;
-border-color: #11111b;
+background-color: rgba(30, 30, 46, 0.9);
+color: #cdd6f4;
+transition-property: background-color;
+transition-duration: 0.2s;
+border-radius: 0px;
+margin: 8px;
 }
 
 #workspaces button {
-color: #383a4b;
-transition: color 0.3s, background 0.3s;
+padding: 0 8px;
+color: #6c7086;
+background-color: transparent;
+border-radius: 4px;
+margin: 2px;
 }
 
 #workspaces button.active {
-color: #a6adc8;
-}
-
-#workspaces button.focused {
-color: #a6adc8;
-background: #eba0ac;
+color: #f5e0dc;
+background-color: #585b70;
 }
 
 #workspaces button.urgent {
-color: #11111b;
-background: #a6e3a1;
+color: #f38ba8;
 }
 
-#workspaces button:hover {
-background: #11111b;
-color: #cdd6f4;
-}
-
-#custom-power_profile,
-#custom-spotify,
-#custom-power,
-#custom-weather,
-#custom-updater,
-#window,
 #clock,
-#idle_inhibitor,
-#battery,
-#pulseaudio,
-#network,
-#bluetooth,
-#temperature,
-#workspaces,
-#tray,
-#language,
 #cpu,
 #memory,
 #disk,
-#backlight {
-background: #1e1e2e;
-opacity: 1.0; /* 0.8; */
-padding-left: 6px;
-padding-right: 6px;
-margin-top: 6px;
-border: 1px solid #181825;
-
-border-top-left-radius: 21px;
-border-top-right-radius: 6px;
-border-bottom-left-radius: 6px;
-border-bottom-right-radius: 21px;
-
-margin-left: 6px;
-margin-right: 6px;
-}
-
-#temperature {
-margin-right: 0px;
-border-bottom-right-radius: 0px;
-border-top-right-radius: 0px;
-}
-
-#temperature.critical {
-color: #dc143c;
-}
-
-#pulseaudio {
-color: #89b4fa;
-margin-left: 0px;
-margin-right: 0px;
-border-bottom-right-radius: 0px;
-border-top-left-radius: 0px;
-border-top-right-radius: 0px;
-border-bottom-left-radius: 0px;
-}
-
-#pulseaudio.microphone {
-color: #cba6f7;
-margin-right: 0px;
-border-top-left-radius: 0px;
-border-bottom-right-radius: 16px;
-border-top-right-radius: 6px;
-}
-
-#backlight {
-margin-left: 0px;
-margin-right: 0px;
-border-bottom-right-radius: 0px;
-border-top-right-radius: 0px;
-}
-
-#cpu {
-color: #8be9fd;
-margin-left: 0px;
-margin-right: 0px;
-border-bottom-right-radius: 0px;
-border-top-right-radius: 0px;
-}
-
-#memory {
-color: #ffb86c;
-margin-left: 0px;
-border-top-left-radius: 0px;
-border-bottom-left-radius: 0px;
-}
-
-#disk {
-color: #50fa7b;
-margin-left: 0px;
-margin-right: 0px;
-border-bottom-right-radius: 0px;
-border-bottom-left-radius: 0px;
-border-top-left-radius: 0px;
-border-top-right-radius: 0px;
-}
-
-#disk.home {
-color: #00ff7b;
-margin-left: 0px;
-margin-right: 0px;
-}
-
-#tray {
-margin-right: 0px;
-margin-left: 0px;
-border-top-left-radius: 0px;
-border-bottom-left-radius: 0px;
-border-bottom-right-radius: 0px;
-border-top-right-radius: 0px;
-}
-
-#workspaces {
-background: #1e1e2e;
-}
-
-#custom-updater {
-color: #a6e3a1;
-margin-right: 0px;
-padding-right: 8px;
-padding-left: 8px;
-}
-
-#custom-power_profile {
-color: #a6e3a1;
-border-left: 0px;
-border-right: 0px;
-}
-
-#custom-spotify {
-color: #1DB954;
-}
-
-#custom-power {
-margin-left: 8px;
-color: #1DB954;
-}
-
-/* Popup menu styling */
-#custom-power.power-menu {
-background-color: #333;
-color: #fff;
-padding: 8px;
-}
-
-#custom-power.power-menu .option {
-padding: 4px;
-}
-
-#custom-power.power-menu .option:hover {
-background-color: #555;
-}
-
-#window {
-margin-left: 60px;
-margin-right: 60px;
+#temperature,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#tray,
+#custom-power,
+#custom-updater,
+#custom-weather,
+#custom-spotify,
+#custom-power_profile,
+#language {
+padding: 0 10px;
+color: #cdd6f4;
+background-color: rgba(49, 50, 68, 0.6);
+border-radius: 4px;
+margin: 4px 2px;
 }
 
 #clock {
-color: #fab387;
-margin-left: 8px;
-margin-right: 0px;
-border-bottom-right-radius: 0px;
-border-top-right-radius: 0px;
+background-color: rgba(180, 190, 254, 0.15);
+color: #b4befe;
+font-weight: bold;
 }
 
-#language {
-color: #ffffff;
-margin-left: 0px;
-margin-right: 0px;
-border-top-left-radius: 0px;
-border-bottom-left-radius: 0px;
+#custom-power {
+color: #f38ba8;
+background-color: rgba(243, 139, 168, 0.15);
 }
 
-#idle_inhibitor {
-color: #DD9000;
+#cpu {
+color: #94e2d5;
+background-color: rgba(148, 226, 213, 0.15);
+}
+
+#memory {
+color: #74c7ec;
+background-color: rgba(116, 199, 236, 0.15);
 }
 
 #network {
-color: #f9e2af;
-border-left: 0px;
-border-right: 0px;
-margin-right: 0px;
-border-bottom-right-radius: 0px;
-border-top-right-radius: 0px;
+color: #89b4fa;
+background-color: rgba(137, 180, 250, 0.15);
 }
 
-#bluetooth {
-color: #89b4fa;
-margin-left: 0px;
-border-top-left-radius: 0px;
-border-bottom-left-radius: 0px;
+#pulseaudio {
+color: #fab387;
+background-color: rgba(250, 179, 135, 0.15);
 }
 
 #battery {
 color: #a6e3a1;
-margin-right: 8px;
-margin-left: 0px;
-border-top-left-radius: 0px;
-border-bottom-left-radius: 0px;
+background-color: rgba(166, 227, 161, 0.15);
 }
 
-#battery.critical:not(.charging) {
-background-color: #F53C3C;
-color: #EEEEEE;
-animation-name: flash;
-animation-duration: 0.5s;
-animation-timing-function: linear;
-animation-iteration-count: infinite;
-animation-direction: alternate;
+#battery.critical {
+color: #f38ba8;
 }
 
-/* Warning state - Yellow */
-#battery.warning:not(.charging) {
-background-color: #FFCC00;
-color: #000000;
-animation-name: flash;
-animation-duration: 0.5s;
-animation-iteration-count: infinite;
-}
-
-#battery.beware:not(.charging) {
-background-color: #EF7000;
-color: #000000;
-animation-name: flash;
-animation-duration: 0.5s;
-animation-iteration-count: infinite;
-}
-
-/* battery.good.charging */
-#battery.good.charging {
-background-color: #00FF00;
-color: #000000;
-animation-name: flash;
-animation-duration: 0.5s;
-animation-iteration-count: infinite;
+#custom-updater {
+color: #f9e2af;
+background-color: rgba(249, 226, 175, 0.15);
 }
 
 #custom-weather {
-padding-right: 16px;
-transition: none;
-color: #ffffff;
-background: #383c4a;
+color: #89dceb;
+background-color: rgba(137, 220, 235, 0.15);
 }
 
-/* Flash animation */
-@keyframes flash {
-0% { opacity: 1; }
-50% { opacity: 0; }
-100% { opacity: 1; }
+#custom-spotify {
+color: #a6e3a1;
+background-color: rgba(166, 227, 161, 0.15);
+}
+
+#tray > .passive {
+-gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+/* -gtk-icon-effect: brighten; */
+color: #f38ba8;
+}
+
+tooltip {
+background-color: rgba(30, 30, 46, 0.95);
+border: 1px solid #313244;
+border-radius: 8px;
+}
+
+tooltip label {
+color: #cdd6f4;
 }

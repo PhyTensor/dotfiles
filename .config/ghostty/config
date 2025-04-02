@@ -1,2 +1,14 @@
 theme = catppuccin-mocha
 
+# font-size = 11
+
+background = #000000
+# background = 282c34
+# foreground = ffffff
+background-opacity = 0.95
+background-blur-radius = 15
+
+window-decoration = false
+
+confirm-close-surface = false
+

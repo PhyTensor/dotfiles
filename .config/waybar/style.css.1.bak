@@ -1,0 +1,296 @@
+* {
+border: none;
+font-family: "FiraCode Nerd Font";
+font-weight: bold;
+font-size: 12px;
+min-height: 0;
+}
+
+window#waybar {
+background: transparent;
+color: #C099FF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+tooltip {
+background: #1e1e2e;
+border-radius: 8px;
+border-width: 1px;
+border-style: solid;
+border-color: #11111b;
+}
+
+#workspaces button {
+color: #383a4b;
+transition: color 0.3s, background 0.3s;
+}
+
+#workspaces button.active {
+color: #a6adc8;
+}
+
+#workspaces button.focused {
+color: #a6adc8;
+background: #eba0ac;
+}
+
+#workspaces button.urgent {
+color: #11111b;
+background: #a6e3a1;
+}
+
+#workspaces button:hover {
+background: #11111b;
+color: #cdd6f4;
+}
+
+#custom-power_profile,
+#custom-spotify,
+#custom-power,
+#custom-weather,
+#custom-updater,
+#window,
+#clock,
+#idle_inhibitor,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#temperature,
+#workspaces,
+#tray,
+#language,
+#cpu,
+#memory,
+#disk,
+#backlight {
+background: #1e1e2e;
+opacity: 1.0; /* 0.8; */
+padding-left: 6px;
+padding-right: 6px;
+margin-top: 6px;
+border: 1px solid #181825;
+
+border-top-left-radius: 21px;
+border-top-right-radius: 6px;
+border-bottom-left-radius: 6px;
+border-bottom-right-radius: 21px;
+
+margin-left: 6px;
+margin-right: 6px;
+}
+
+#temperature {
+margin-right: 0px;
+border-bottom-right-radius: 0px;
+border-top-right-radius: 0px;
+}
+
+#temperature.critical {
+color: #dc143c;
+}
+
+#pulseaudio {
+color: #89b4fa;
+margin-left: 0px;
+margin-right: 0px;
+border-bottom-right-radius: 0px;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+
+#pulseaudio.microphone {
+color: #cba6f7;
+margin-right: 0px;
+border-top-left-radius: 0px;
+border-bottom-right-radius: 16px;
+border-top-right-radius: 6px;
+}
+
+#backlight {
+margin-left: 0px;
+margin-right: 0px;
+border-bottom-right-radius: 0px;
+border-top-right-radius: 0px;
+}
+
+#cpu {
+color: #8be9fd;
+margin-left: 0px;
+margin-right: 0px;
+border-bottom-right-radius: 0px;
+border-top-right-radius: 0px;
+}
+
+#memory {
+color: #ffb86c;
+margin-left: 0px;
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+
+#disk {
+color: #50fa7b;
+margin-left: 0px;
+margin-right: 0px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+}
+
+#disk.home {
+color: #00ff7b;
+margin-left: 0px;
+margin-right: 0px;
+}
+
+#tray {
+margin-right: 0px;
+margin-left: 0px;
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-top-right-radius: 0px;
+}
+
+#workspaces {
+background: #1e1e2e;
+}
+
+#custom-updater {
+color: #a6e3a1;
+margin-right: 0px;
+padding-right: 8px;
+padding-left: 8px;
+}
+
+#custom-power_profile {
+color: #a6e3a1;
+border-left: 0px;
+border-right: 0px;
+}
+
+#custom-spotify {
+color: #1DB954;
+}
+
+#custom-power {
+margin-left: 8px;
+color: #1DB954;
+}
+
+/* Popup menu styling */
+#custom-power.power-menu {
+background-color: #333;
+color: #fff;
+padding: 8px;
+}
+
+#custom-power.power-menu .option {
+padding: 4px;
+}
+
+#custom-power.power-menu .option:hover {
+background-color: #555;
+}
+
+#window {
+margin-left: 60px;
+margin-right: 60px;
+}
+
+#clock {
+color: #fab387;
+margin-left: 8px;
+margin-right: 0px;
+border-bottom-right-radius: 0px;
+border-top-right-radius: 0px;
+}
+
+#language {
+color: #ffffff;
+margin-left: 0px;
+margin-right: 0px;
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+
+#idle_inhibitor {
+color: #DD9000;
+}
+
+#network {
+color: #f9e2af;
+border-left: 0px;
+border-right: 0px;
+margin-right: 0px;
+border-bottom-right-radius: 0px;
+border-top-right-radius: 0px;
+}
+
+#bluetooth {
+color: #89b4fa;
+margin-left: 0px;
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+
+#battery {
+color: #a6e3a1;
+margin-right: 8px;
+margin-left: 0px;
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+
+#battery.critical:not(.charging) {
+background-color: #F53C3C;
+color: #EEEEEE;
+animation-name: flash;
+animation-duration: 0.5s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+}
+
+/* Warning state - Yellow */
+#battery.warning:not(.charging) {
+background-color: #FFCC00;
+color: #000000;
+animation-name: flash;
+animation-duration: 0.5s;
+animation-iteration-count: infinite;
+}
+
+#battery.beware:not(.charging) {
+background-color: #EF7000;
+color: #000000;
+animation-name: flash;
+animation-duration: 0.5s;
+animation-iteration-count: infinite;
+}
+
+/* battery.good.charging */
+#battery.good.charging {
+background-color: #00FF00;
+color: #000000;
+animation-name: flash;
+animation-duration: 0.5s;
+animation-iteration-count: infinite;
+}
+
+#custom-weather {
+padding-right: 16px;
+transition: none;
+color: #ffffff;
+background: #383c4a;
+}
+
+/* Flash animation */
+@keyframes flash {
+0% { opacity: 1; }
+50% { opacity: 0; }
+100% { opacity: 1; }
+}
