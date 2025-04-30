@@ -127,6 +127,10 @@ end
 
 set MANPAGER "nvim +Man!"
 
+# FZF shell integration
+# Set up fzf key bindings
+fzf --fish | source
+
 # YAZI
 # Shell wrapper for yazi. We suggest using this y shell wrapper that provides the ability to change the current working directory when exiting Yazi.
 function y
