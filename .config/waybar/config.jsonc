@@ -1,304 +1,217 @@
 {
-    "layer": "bottom",
-    "position": "top",
-    "spacing": 0, // gaps between modules
-    "mode": "dock",
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "modules-left": [
-        //"custom/power",
-        "clock",
-        "hyprland/language",
-        //"idle_inhibitor",
-        "custom/weather",
-        "custom/power_profile",
-        "custom/updater",
-        "custom/spotify"
-    ],
-    "modules-center": [
-        //"custom/left-arrow-dark",
-        "hyprland/workspaces"
-        //"custom/right-arrow-dark"
-        //"hyprland/window"
-    ],
-    "modules-right": [
-        "network",
-        "bluetooth",
-        "cpu",
-        "memory",
-        "disk",
-        "disk#home",
-        "backlight",
-        "pulseaudio",
-        "pulseaudio#microphone",
-        "temperature",
-        "tray",
-        "battery",
-        "custom/battery-notification",
-    ],
-
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 60,
-        "separate-outputs": false
-    },
-
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}: {icon}",
-        "on-scroll-up": "hyprctl dispatch workspace e-1",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
+	"layer": "bottom",
+	"position": "top",
+	"spacing": 4,
+	"mode": "dock",
+	"height": 34,
+	"margin-top": 0,
+	"margin-bottom": 0,
+	"margin-left": 0,
+	"margin-right": 0,
+	"exclusive": true,
+	"passthrough": false,
+	"gtk-layer-shell": true,
+	"modules-left": [
+		"clock",
+		"hyprland/language",
+		"custom/spotify"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		"pulseaudio",
+		"pulseaudio#microphone",
+		"backlight",
+		"network",
+		"bluetooth",
+		"cpu",
+		"memory",
+		"disk",
+		"disk#home",
+		"temperature",
+		"battery",
+		"custom/battery-notification",
+		"tray"
+	],
+	"hyprland/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"warp-on-scroll": false,
+		"format": "{name}",
+		"on-click": "activate",
+		"active-only": false,
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
+		"on-scroll-down": "hyprctl dispatch workspace e+1"
+	},
+	"clock": {
+		"timezone": "Africa/Nairobi",
+		"interval": 1,
+		"format": "{:%H:%M:%S}",
+		"format-alt": "{:%A, %d %B | %Y}",
+		"tooltip-format": "<big>{:%H:%M - %d %B, %Y}</big>\n<tt><big>{calendar}</big></tt>",
+		"tooltip": true
+	},
+	"hyprland/language": {
+		"format": "{}",
+		"format-uk": "UA",
+		"format-en": "US",
+		"format-gr": "GR",
+		"format-sw": "SW",
+		"format-ki": "KI",
+		"format-ru": "RU",
+		"min-length": 1,
+		"tooltip": true
+	},
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": "{icon}",
+		"format-ethernet": "󰈀 ",
+		"format-disconnected": "󰖪 ",
+		"tooltip-format": " {ifname} via {gwaddri}",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) - {ifname} via {gwaddr}",
+		"tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+		"nospacing": 1,
+		"interval": 5,
+		"format-icons": [
+			"󰤯 ",
+			"󰤟 ",
+			"󰤢 ",
+			"󰤥 ",
+			"󰤨 "
+		]
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": "󰖁 ",
+		"on-click": "pamixer -t",
+		"on-scroll-up": "pamixer -i 5",
+		"on-scroll-down": "pamixer -d 5",
+		"nospacing": 1,
+		"scroll-step": 5,
 		"format-icons": {
-              "1": "",
-              "2": "",
-              "3": "",
-              "4": "",
-              "5": "",
-              "9": "",
-             "urgent": "",
-             "active": "",
-             "default": ""
-         }
-     },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-
-    "custom/power_profile":{
-        //shows the current power profile and switches to next on click
-        "exec": "asusctl profile -p | sed s:'Active profile is'::",
-        "interval": 30,
-        "format": "󰈐 {}",
-        "on-click": "asusctl profile -n; pkill -SIGRTMIN+8 waybar",
-        "signal": 8
-    },
-
-    "hyprland/language": {
-        "format": "{}",
-        "format-uk": "UA",
-        "format-en": "US",
-        "format-gr": "GR",
-        "format-sw": "SW",
-        "format-ki": "KI",
-        "format-ru": "RU",
-        "min-length": 1,
-        "tooltip": true
-    },
-
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": " {name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-
-    "cpu": {
-        "interval": 1,
-        "format": " {usage}%",
-        "tooltip": true,
-        "on-click": "kitty htop"
-    },
-
-    "memory": {
-        "interval": 5,
-        "format": " {: >3}% ",
-        "on-click": "kitty htop"
-    },
-
-    "disk": {
-        "interval": 30,
-        "format": "/ {percentage_used}%",
-        "tooltip": true,
-        "path": "/"
-    },
-
-    "disk#home": {
-        "interval": 60,
-        "format": "~ {percentage_used}%",
-        "tooltip": true,
-        "path": "/home"
-    },
-
-    "tray": {
-        "icon-size": 18,
-        "spacing": 8
-    },
-
-    "clock": {
-        "timezone": "Africa/Nairobi",
-        "interval": 1,
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M:%S}",
-        //"format": "{: %I:%M %p   %a, %b %e}",
-         //"format-alt": "{:%Y-%m-%d}",
-        //"format": " {:%a %d %b  %I:%M %p}",	//12 hour format
-        // "format": " {:%a %d %b  %H:%M}",	//24 hour format
-        //"format-alt": " {:%d/%m/%Y  %H:%M:%S}",
-        "format-alt": " {:%a %d %b  %H:%M:%S}",
-        "tooltip": true
-    },
-
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon} {percent}%",
-        "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "],
-        "on-scroll-up": "brightnessctl set 1%+",
-        "on-scroll-down": "brightnessctl set 1%-",
-        "min-length": 6
-    },
-
-    "battery": {
-        "states": {
-            "good": 89,
-            "beware": 30,
-            "warning": 21,
-            "critical": 16
-        },
-        "interval": 6,
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-    },
-
-    "custom/battery-notification": {
-        "exec": "~/.config/waybar/scripts/battery_notification.sh",
-        "interval": 5
-    },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "tooltip": true,
-        "format-muted": " ",
-        "on-click": "pamixer -t",
-        //"on-click": "GDK_DISABLE=vulkan pavucontrol",
-        "on-scroll-up": "pamixer -i 5",
-        "on-scroll-down": "pamixer -d 5",
-        "nospacing": 1,
-        "scroll-step": 5,
-        "format-icons": {
-            "headphone": " ",
-            "hands-free": " ",
-            "headset": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
-            "default": [" ", " ", " "]
-        }
-    },
-
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " ",
-        "on-click": "pamixer --default-source -t",
-        "on-scroll-up": "pamixer --default-source -i 5",
-        "on-scroll-down": "pamixer --default-source -d 5",
-        "scroll-step": 5
-    },
-
-    "temperature": {
-        "interval": 2,
-        //"thermal-zone": 1,
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        //"format": "{temperatureC}°C {icon} ",
-        "format": "{temperatureC}°C {icon}",
-        "critical-threshold": 70,
-        //"format-critical": "{temperatureC}°C ",
-        "format-critical": "{temperatureC}°C {icon}",
-        "format-icons": [" ", " ", " "]
-    },
-
-    "network": {
-        "format": "{ifname}",
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-ethernet": "󰈀 ",
-        //"format-wifi": " ",
-        "format-wifi": "{icon}",
-        //"format-ethernet": "󰈀 {ipaddr}/{cidr}",
-        "tooltip-format": " {ifname} via {gwaddri}",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) - {ifname} via {gwaddr}",
-        "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
-        //"format-disconnected": "Disconnected ⚠",
-        "format-disconnected": "󰤭 ⚠",
-        "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤥 ","󰤨 "],
-        "format-linked": "{ifname} (No IP)",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "nospacing": 1
-    },
-
-    "bluetooth": {
-	    "format": " {status}",
-	    "format-disabled": "", // an empty format will hide the module
-	    "format-connected": " {num_connections}",
-	    "tooltip-format": "{device_alias}",
+			"headphone": " ",
+			"hands-free": " ",
+			"headset": " ",
+			"phone": " ",
+			"portable": " ",
+			"car": " ",
+			"default": [
+				" ",
+				" ",
+				" "
+			]
+		},
+		"tooltip": true
+	},
+	"pulseaudio#microphone": {
+		"format": "{format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": " ",
+		"on-click": "pamixer --default-source -t",
+		"on-scroll-up": "pamixer --default-source -i 5",
+		"on-scroll-down": "pamixer --default-source -d 5",
+		"scroll-step": 5
+	},
+	"keyboard-state": {
+		"numlock": true,
+		"capslock": true,
+		"format": " {name} {icon}",
+		"format-icons": {
+			"locked": "",
+			"unlocked": ""
+		}
+	},
+	"cpu": {
+		"format": "󰻠 {usage}%",
+		"tooltip": true,
+		"interval": 5
+	},
+	"memory": {
+		"interval": 5,
+		"format": "󰓅 {percentage}%"
+	},
+	"disk": {
+		"interval": 30,
+		"format": "/ {percentage_used}%",
+		"tooltip": true,
+		"path": "/"
+	},
+	"disk#home": {
+		"interval": 60,
+		"format": "~ {percentage_used}%",
+		"tooltip": true,
+		"path": "/home"
+	},
+	"temperature": {
+		"interval": 2,
+		"format": "{temperatureC}°C",
+		"critical-threshold": 70
+	},
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"󰃞 ",
+			"󰃟 ",
+			"󰃠 "
+		],
+		"on-scroll-up": "brightnessctl set 1%+",
+		"on-scroll-down": "brightnessctl set 1%-",
+		"scroll-step": 4,
+		"min-length": 4
+	},
+	"battery": {
+		"states": {
+			"good": 89,
+			"beware": 30,
+			"warning": 21,
+			"critical": 16
+		},
+		"interval": 6,
+		"format": "{icon} {capacity}%",
+		"format-charging": "󰂄 {capacity}%",
+		"format-plugged": "󱘖 {capacity}%",
+		"format-alt": "󰁹 {time}",
+		"format-icons": [
+			"󰂎",
+			"󰁺",
+			"󰁻",
+			"󰁼",
+			"󰁽",
+			"󰁾",
+			"󰁿",
+			"󰂀",
+			"󰂁",
+			"󰂂"
+		]
+	},
+	"custom/battery-notification": {
+		"exec": "~/.config/waybar/scripts/battery_notification.sh",
+		"interval": 5
+	},
+	"bluetooth": {
+		"format": " {status}",
+		"format-disabled": "", // an empty format will hide the module
+		"format-connected": " {num_connections}",
+		"tooltip-format": "{device_alias}",
 		"tooltip-format-off": "Bluetooth is off",
 		"tooltip-format-on": "Bluetooth is on",
-	    "tooltip-format-connected": " {device_enumerate}",
-	    "tooltip-format-enumerate-connected": "{device_alias}",
+		"tooltip-format-connected": " {device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}",
 		"on-click": "blueman-manager"
-    },
-
-    "custom/spotify": {
-        "exec": "/usr/bin/python3 /home/karoki/.config/waybar/scripts/mediaplayer.py --player spotify",
-        "format": "{}  ",
-        "return-type": "json",
-        "on-click": "playerctl -p spotify play-pause",
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous",
-        "max-length": 32,
-    },
-
-    "custom/power": {
-        "format" : "⏻ {}",
-        //"exec": "~/.config/waybar/scripts/power_menu.sh",
-        //"interval": 30,
-		"tooltip": false,
-        //"on-click": "bash ~/.config/waybar/scripts/power_menu.sh toggle",
-        "on-click": "~/.config/waybar/scripts/power_menu.sh",
-        //"return-type": "json",
-		//"menu": "on-click",
-		// "menu-file": "$HOME/.config/waybar/scripts/power_menu.xml", // Menu file in resources folder
-		//"menu-actions": {
-		//	"shutdown": "shutdown",
-		//	"reboot": "reboot",
-		//	"suspend": "systemctl suspend",
-		//	"hibernate": "systemctl hibernate"
-		//}
-    },
-
-    "custom/updater":{
-        "format": " {}",
-        "exec": "pacman -Qu | wc -l",
-        "exec-if": "[[ $(pacman -Qu | wc -l) != 0 ]]",
-        "interval": 15,
-        "on-click": "~/.config/waybar/scripts/updater.sh"
-    },
-
-    "custom/weather": {
-        //"format": "{}",
-        //"exec": "curl 'wttr.in/Nairobi?format=1",
-        //"interval": 1800,
-        ////"on-click": "firefox 'https://www.meteoblue.com/en/weather/week/ljubljana_slovenia_3196359'"
-        //"on-click": "firefox 'https://www.meteoblue.com/en/weather/week/nairobi_kenya_184745'"
-
-        "format": "{}",
-        "tooltip": true,
-        "interval": 5,
-        "exec": "$HOME/.config/waybar/scripts/wttr.py",
-        "return-type": "json"
-    }
+	},
+	"custom/spotify": {
+		"exec": "/usr/bin/python3 /home/karoki/.config/waybar/scripts/mediaplayer.py --player spotify",
+		"format": "{}",
+		"return-type": "json",
+		"on-click": "playerctl -p spotify play-pause",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous",
+		"max-length": 32
+	},
+	"tray": {
+		"spacing": 8
+	}
 }
