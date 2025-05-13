@@ -1,6 +1,6 @@
 hide_scroll=true
-width=600
-height=348
+width=630
+height=350
 lines=8
 line_wrap=word
 term=kitty

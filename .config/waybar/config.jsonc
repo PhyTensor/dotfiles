@@ -3,7 +3,7 @@
 	"position": "top",
 	"spacing": 4,
 	"mode": "dock",
-	"height": 34,
+	"height": 32,
 	"margin-top": 0,
 	"margin-bottom": 0,
 	"margin-left": 0,
@@ -11,6 +11,7 @@
 	"exclusive": true,
 	"passthrough": false,
 	"gtk-layer-shell": true,
+	"reload_style_on_change": true,
 	"modules-left": [
 		"clock",
 		"hyprland/language",
@@ -189,7 +190,7 @@
 	},
 	"custom/battery-notification": {
 		"exec": "~/.config/waybar/scripts/battery_notification.sh",
-		"interval": 5
+		"interval": 6
 	},
 	"bluetooth": {
 		"format": " {status}",
