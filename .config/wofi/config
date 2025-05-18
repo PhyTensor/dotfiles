@@ -1,5 +1,5 @@
 hide_scroll=true
-width=600
+width=630
 height=350
 lines=8
 line_wrap=word
@@ -21,5 +21,5 @@ orientation=vertical
 content_halign=fill
 insensitive=true
 allow_images=true
-image_size=40
+image_size=48
 gtk_dark=true

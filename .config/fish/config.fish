@@ -77,6 +77,30 @@ alias jctl 'journalctl -p 3 -xb'
 # Recent installed packages
 alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 
+# GIT
+alias ga 'git add'
+alias gc 'git commit'
+alias gi 'git init'
+alias gd 'git diff'
+alias gb 'git branch'
+alias gP 'git push'
+alias gp 'git pull'
+alias gcl 'git clone'
+alias gap 'git add --patch'
+alias gss 'git status --short'
+alias gco 'git checkout'
+alias gcob 'git checkout -b'
+# alias gl 'git log --oneline --decorate --graph --all'
+alias gl "git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'"
+alias glg 'git log --oneline --decorate --graph --all --stat --date=short'
+# %h -- commit hash
+# %H -- abbreviated commit hash
+# %an -- author name
+# %ae -- author email
+# %ar -- commit time
+# %D -- ref names
+# %n -- new line
+# %s -- commit message
 
 # ANDROID
 # set ANDROID_HOME = $HOME/Android/Sdk/
@@ -126,6 +150,10 @@ if status is-interactive
 end
 
 set MANPAGER "nvim +Man!"
+
+# FZF shell integration
+# Set up fzf key bindings
+fzf --fish | source
 
 # YAZI
 # Shell wrapper for yazi. We suggest using this y shell wrapper that provides the ability to change the current working directory when exiting Yazi.

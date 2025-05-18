@@ -11,8 +11,8 @@ on-button-right=dismiss-all
 on-touch=dismiss
 
 # STYLE OPTIONS
-font=FiraCode Nerd Font 10
-width=450
+font=JetBrainsMono Nerd Font 10
+width=720
 height=640
 margin=10
 padding=6
@@ -25,7 +25,7 @@ icon-location=left
 markup=1
 actions=1
 history=1
-text-alignment=left
+text-alignment=center
 default-timeout=5800
 ignore-timeout=0
 max-visible=6
