@@ -1,7 +1,8 @@
 [user]
 	name = PhyTensor
 	email = phystroq@gmail.com
-	signingkey = 6FA18D32999955BA
+	# signingkey = 6FA18D32999955BA
+	signingkey = ~/.ssh/id_ed25519.pub
 
 [init]
 	defaultBranch = main
@@ -11,6 +12,10 @@
 	compression = 9 # level 9 to trade some CPU to speed up network transfers and save some disk space
 	whitespace = error # get warning when you try to commit whitespace
 	preloadindex = true # load index into memory improving performance
+
+[gpg]
+	format = ssh
+	# program = gpg
 
 [commit]
 	gpgsign = true # sign commits with GPG
