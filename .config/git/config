@@ -1,0 +1,84 @@
+[user]
+	name = PhyTensor
+	email = phystroq@gmail.com
+	signingkey = 6FA18D32999955BA
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
+	compression = 9 # level 9 to trade some CPU to speed up network transfers and save some disk space
+	whitespace = error # get warning when you try to commit whitespace
+	preloadindex = true # load index into memory improving performance
+
+[commit]
+	gpgsign = true # sign commits with GPG
+
+[branch]
+	sort = -committerdate # sort branches by commit date
+
+[tag]
+	sort = -taggerdate # more recent tags are shown first
+	gpgsign = true # sign tags with GPG
+
+[status]
+	branch = true # show branch name in output
+	showStash = true # show stash info
+	showUntrackedFiles = all # show all untracked files without grouping them into directories
+
+[diff]
+	context = 3 # reduce number of context lines so its more compact
+	renames = copies # detect renames and copies to make output cleaner
+	interHunkContext = 10 # near hunks of code get grouped together
+
+[push]
+	autoSetupRemote = true # automatically set up remote tracking branch
+	default = current # push to current branch by default
+	followTags = true
+
+[pull]
+	default = current # pull from current branch by default
+	rebase = true # rebase instead of merge
+
+[log]
+	abbrevCommit = true # show abbreviated commits hashes -- shorten commit hashes
+	graphColors = blue,yellow,cyan,magenta,green,red # improve color ordering
+
+[rebase]
+	autoStash = true # automatically stash unstaged local changes and apply rebase after
+	missingCommitsCheck = warn # warn me if I accidentally remove some commits whie editing
+
+[interactive]
+	diffFilter = diff-so-fancy --patch
+	singlekey = true # use single key to exit from diff view
+
+[pager]
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	branch = false # disable default pager. I will call it myself when I need it
+	tag = false
+
+[diff-so-fancy]
+	markEmptyLines = false
+
+[color "diff"]
+	meta = black bold # yellow bold
+	frag = magenta bold # line info
+	context = white
+	whitespace = yellow reverse
+	old = red # deletions
+    	new = green # additions
+
+[color "decorate"]
+	HEAD = red
+	branch = blue
+	tag = yellow
+	remoteBranch = magenta
+
+[color "branch"]
+	current = magenta bold
+	local = default
+	remote = yellow
+	upstream = green
+	plain = blue
+
