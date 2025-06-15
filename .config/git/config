@@ -1,7 +1,7 @@
 [user]
 	name = PhyTensor
 	email = phystroq@gmail.com
-	signingkey = ~/.ssh/id_ed25519.pub # sign commits with ssh key
+	signingkey = ~/.ssh/ssh_github_sign.pub # sign commits with ssh key
 
 [init]
 	defaultBranch = main
