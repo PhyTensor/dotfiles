@@ -64,9 +64,6 @@ alias mirrord 'sudo reflector --latest 50 --number 20 --protocol https --info --
 alias mirrors 'sudo reflector --latest 50 --number 20 --protocol https --info --verbose --sort score --threads $(nproc) --save /etc/pacman.d/mirrorlist'
 
 # Help people new to Arch
-alias apt 'man pacman'
-alias apt-get 'man pacman'
-alias please 'sudo'
 alias tb 'nc termbin.com 9999'
 alias helpme 'echo "To print basic information about a command use tldr <command>"'
 alias pacdiff 'sudo -H DIFFPROG=meld pacdiff'
@@ -165,4 +162,9 @@ function y
 	end
 	rm -f -- "$tmp"
 end
+
+
+# TMUX-SESSIONISER
+set PATH "$PATH":"$HOME/.config/scripts/"
+bind \cf "tmux-sessioniser.sh"
 
