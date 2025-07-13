@@ -1,53 +1,53 @@
 * {
-	border: none;
-	border-radius: 8px;
-	font-family: "JetBrainsMono Nerd Font", "Helvetica Neue", Arial, sans-serif;
-	font-size: 12px;
-	min-height: 0;
+    border: none;
+    border-radius: 8px;
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 12px;
+    min-height: 0;
 }
 
 window#waybar {
-	background-color: rgba(0, 0, 0, 0.0);
-	color: #ffffff;
-	transition-property: background-color;
-	transition-duration: 0.2s;
-	border-radius: 0px;
-	margin: 8px 8px 0 8px;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    border-radius: 0px;
+    margin: 8px 8px 0 8px;
 }
 
 window#waybar.hidden {
-	opacity: 0.9;
+    opacity: 0.9;
 }
 
 #workspaces button {
-	padding: 0 8px;
-	color: rgba(255, 255, 255, 0.7);
-	background: rgba(255, 255, 255, 0.1);
-	margin: 2px 2px;
-	transition: all 0.3s ease;
+    padding: 0 8px;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    margin: 2px 2px;
+    transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
-	background: rgba(255, 255, 255, 0.2);
-	box-shadow: inherit;
-	color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: inherit;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 #workspaces button.active {
-	color: rgba(255, 255, 255, 0.9);
-	background: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 #workspaces button.urgent {
-	background-color: rgba(255, 69, 0, 0.6);
+    background-color: rgba(255, 69, 0, 0.6);
 }
 
 .modules-left>widget:first-child>#workspaces {
-	margin-left: 4px;
+    margin-left: 4px;
 }
 
 .modules-right>widget:last-child>#workspaces {
-	margin-right: 4px;
+    margin-right: 4px;
 }
 
 #clock,
@@ -64,92 +64,92 @@ window#waybar.hidden {
 #custom-spotify,
 #language,
 #tray {
-	padding: 2px 6px;
-	margin: 4px 2px;
-	color: rgba(255, 255, 255, 0.9);
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: 8px;
+    padding: 2px 6px;
+    margin: 4px 2px;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 }
 
 #clock {
-	font-weight: bold;
-	background: rgba(255, 255, 255, 0.15);
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.15);
 }
 
 #network {
-	color: #7dd3fc;
+    color: #7dd3fc;
 }
 
 #bluetooth {
-	color: #89b4fa;
-	background-color: rgba(137, 180, 250, 0.15);
+    color: #89b4fa;
+    background-color: rgba(137, 180, 250, 0.15);
 }
 
 #pulseaudio {
-	color: #a78bfa;
+    color: #a78bfa;
 }
 
 #cpu {
-	color: #6ee7b7;
+    color: #6ee7b7;
 }
 
 #memory {
-	color: #fca5a5;
+    color: #fca5a5;
 }
 
 #disk {
-	color: #89dceb;
-	background-color: rgba(137, 220, 235, 0.15);
+    color: #89dceb;
+    background-color: rgba(137, 220, 235, 0.15);
 }
 
 #temperature {
-	color: #fde047;
+    color: #fde047;
 }
 
 #backlight {
-	color: #f38ba8;
-	background-color: rgba(243, 139, 168, 0.15);
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.15);
 }
 
 #battery {
-	color: #86efac;
+    color: #86efac;
 }
 
 #battery.critical {
-	background: rgba(255, 0, 0, 0.2);
-	color: #fca5a5;
+    background: rgba(255, 0, 0, 0.2);
+    color: #fca5a5;
 }
 
 #battery.warning {
-	background: rgba(255, 165, 0, 0.2);
-	color: #fdba74;
+    background: rgba(255, 165, 0, 0.2);
+    color: #fdba74;
 }
 
 #custom-spotify {
-	color: #a6e3a1;
-	background-color: rgba(166, 227, 161, 0.15);
+    color: #a6e3a1;
+    background-color: rgba(166, 227, 161, 0.15);
 }
 
 #tray {
-	background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 #tray>.passive {
-	-gtk-icon-effect: dim;
+    -gtk-icon-effect: dim;
 }
 
 #tray>.needs-attention {
-	/* -gtk-icon-effect: brighten; */
-	color: #f38ba8;
+    /* -gtk-icon-effect: brighten; */
+    color: #f38ba8;
 }
 
 tooltip {
-	background: rgba(0, 0, 0, 0.7);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 8px;
-	color: #ffffff;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
 }
 
 tooltip label {
-	color: white;
+    color: white;
 }
