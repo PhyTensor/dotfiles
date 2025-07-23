@@ -1,9 +1,9 @@
 hide_scroll=true
 width=630
 height=350
-lines=8
+lines=0
 line_wrap=word
-term=kitty
+term=ghostty
 always_parse_args=false
 show_all=true
 print_command=true
