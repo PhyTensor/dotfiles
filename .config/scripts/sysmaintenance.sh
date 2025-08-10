@@ -11,7 +11,7 @@ paccache -rvk 0
 echo "[ + ] Space saved: $pacman_cache_space_used"
 
 echo "[ + ] Removing orphan packages"
-sudo pacman -Qdtq | sudo pacman -Rns $(pacman -Qtdq) --noconfirm
+sudo pacman -Rns $(pacman -Qtdq) --noconfirm
 
 echo "[ + ] Clearing ~/.cache"
 home_cache_used="$(du -sh ~/.cache)"

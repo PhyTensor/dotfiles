@@ -4,10 +4,10 @@ battery_capacity=$(< /sys/class/power_supply/BAT0/capacity)
 battery_status=$(< /sys/class/power_supply/BAT0/status)
 
 # Define icon paths
-icon_charging="/usr/share/icons/Papirus/48x48/status/battery-charging.svg"
-icon_low="/usr/share/icons/Papirus/48x48/status/battery-low.svg"
-icon_critical="/usr/share/icons/Papirus/48x48/status/battery-caution.svg"
-icon_full="/usr/share/icons/Papirus/48x48/status/battery.svg"
+icon_charging="/usr/share/icons/breeze-dark/status/32/battery-000-charging.svg"
+icon_low="/usr/share/icons/breeze-dark/status/32/battery-low.svg"
+icon_critical="/usr/share/icons/breeze-dark/status/32/battery-empty.svg"
+icon_full="/usr/share/icons/breeze-dark/status/32/battery-full.svg"
 
 # Function to send notifications
 send_notification() {

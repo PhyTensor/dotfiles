@@ -133,11 +133,12 @@ set PATH $PATH $HOME/.dotnet/tools/
 #end
 
 # STARSHIP
-#starship init fish | source
+# starship init fish | source
 # starship prompt
 if status is-interactive
     # Commands to run in interactive sessions can go here
-     source ('/usr/bin/starship' init fish --print-full-init | psub)
+    # source ("/usr/bin/starship" init fish --print-full-init | psub)
+    starship init fish | source
 
     # ZOXIDE
     zoxide init fish | source
@@ -146,7 +147,7 @@ if status is-interactive
     atuin init fish | source
 end
 
-set MANPAGER "nvim +Man!"
+# set MANPAGER "nvim +Man!"
 
 # FZF shell integration
 # Set up fzf key bindings
@@ -154,17 +155,17 @@ fzf --fish | source
 
 # YAZI
 # Shell wrapper for yazi. We suggest using this y shell wrapper that provides the ability to change the current working directory when exiting Yazi.
-function y
-	set tmp (mktemp -t "yazi-cwd.XXXXXX")
-	yazi $argv --cwd-file="$tmp"
-	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-		builtin cd -- "$cwd"
-	end
-	rm -f -- "$tmp"
-end
+# function y
+# 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+# 	yazi $argv --cwd-file="$tmp"
+# 	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+# 		builtin cd -- "$cwd"
+# 	end
+# 	rm -f -- "$tmp"
+# end
 
 
 # TMUX-SESSIONISER
-set PATH "$PATH":"$HOME/.config/scripts/"
-bind \cf "tmux-sessioniser.sh"
+# set PATH "$PATH":"$HOME/.config/scripts/"
+# bind \cf "tmux-sessioniser.sh"
 
