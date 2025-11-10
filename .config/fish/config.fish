@@ -144,7 +144,7 @@ if status is-interactive
     zoxide init fish | source
 
     # Atuin
-    atuin init fish | source
+    # atuin init fish | source
 end
 
 # set MANPAGER "nvim +Man!"
@@ -169,3 +169,6 @@ fzf --fish | source
 # set PATH "$PATH":"$HOME/.config/scripts/"
 # bind \cf "tmux-sessioniser.sh"
 
+
+# Created by `pipx` on 2025-09-26 02:25:55
+# set PATH $PATH /home/karoki/.local/bin

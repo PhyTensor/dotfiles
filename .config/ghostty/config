@@ -1,4 +1,5 @@
-theme = catppuccin-mocha
+theme = dark:Catppuccin Mocha,light:Catppuccin Mocha
+
 
 font-size = 10
 
