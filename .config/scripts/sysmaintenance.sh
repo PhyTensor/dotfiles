@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "[ + ] Updating mirrorlist"
-sudo reflector --protocol https --country Kenya,Germany,Bahrain --sort rate --threads $(nproc) --save /etc/pacman.d/mirrorlist
+sudo reflector --protocol https --country Kenya,Germany,Bahrain,Netherlands --sort rate --threads $(nproc) --save /etc/pacman.d/mirrorlist
 
 echo "[ + ] Updating system"
 sudo pacman -Syu
