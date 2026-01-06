@@ -17,7 +17,7 @@ should_notify() {
 }
 
 # Check battery status and capacity
-if [ "$battery_status" = "Charging" ] && [ "$battery_capacity" -ge 90 ]; then
+if [ "$battery_status" = "Charging" ] && [ "$battery_capacity" -ge 83 ]; then
     # Notify for full battery
     if should_notify /tmp/full_battery_notified 2; then
         send_notification "$battery_capacity% - Unplug from AC" # "$icon_full"
