@@ -33,6 +33,8 @@ alias l 'eza -alh --color=always --long --git --no-filesize --icons --no-time --
 
 alias cat 'bat --style header --style snip --style changes --style header'
 
+alias y 'yazi'
+
 # Common use
 alias .. 'cd ..'
 alias ... 'cd ../..'
