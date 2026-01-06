@@ -1,6 +1,6 @@
 theme = dark:Catppuccin Mocha,light:Catppuccin Mocha
 
-
+font-family = JetBrains Mono Nerd Font
 font-size = 10
 
 background-opacity = 0.88
