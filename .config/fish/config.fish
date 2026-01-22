@@ -172,5 +172,4 @@ fzf --fish | source
 # bind \cf "tmux-sessioniser.sh"
 
 
-# Created by `pipx` on 2025-09-26 02:25:55
-# set PATH $PATH /home/karoki/.local/bin
+set PATH $PATH /home/karoki/.local/bin
