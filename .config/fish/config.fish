@@ -101,6 +101,8 @@ alias glg 'git log --oneline --decorate --graph --all --stat --date=short'
 # %n -- new line
 # %s -- commit message
 
+alias myip 'curl https://icanhazip.com'
+
 # ANDROID
 # set ANDROID_HOME = $HOME/Android/Sdk/
 # set PATH $PATH $ANDROID_HOME $HOME/Android/Sdk/platform-tools/

@@ -1,16 +1,3 @@
-# Lines configured by zsh-newuser-install
-# HISTFILE=~/.histfile
-# HISTSIZE=100000
-# SAVEHIST=1000000
-# bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-# zstyle :compinstall filename '/home/karoki/.zshrc'
-
-# autoload -Uz compinit
-# compinit
-# End of lines added by compinstall
-
 # ~/.config/zsh/.zshrc
 # Purpose:
 # - Interactive shell configuration
@@ -111,6 +98,8 @@ alias g='git'
 alias gs='git status'
 alias gl='git log --oneline --graph --decorate'
 
+alias myip='curl https://icanhazip.com'
+
 # --------------------------------------------------
 # Environment tweaks
 # --------------------------------------------------
@@ -128,3 +117,8 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 # This file is not tracked. Machine-specific tweaks go here.
 [[ -f "$ZDOTDIR/local.zsh" ]] && source "$ZDOTDIR/local.zsh"
 
+source <(fzf --zsh)
+
+eval "$(starship init zsh)"
+
+eval "$(zoxide init zsh)"
