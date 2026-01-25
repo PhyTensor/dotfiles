@@ -84,7 +84,7 @@
         ]
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}{volume}",
         "format-muted": "󰖁 ",
         "on-click": "pamixer -t",
         "on-scroll-up": "pamixer -i 5",
@@ -108,7 +108,7 @@
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": " {volume}%",
+        "format-source": " {volume}",
         "format-source-muted": " ",
         "on-click": "pamixer --default-source -t",
         "on-scroll-up": "pamixer --default-source -i 5",
@@ -125,23 +125,23 @@
         }
     },
     "cpu": {
-        "format": "󰻠 {usage}%",
+        "format": "󰻠 {usage}",
         "tooltip": true,
         "interval": 5
     },
     "memory": {
         "interval": 5,
-        "format": "󰓅 {percentage}%"
+        "format": "󰓅 {percentage}"
     },
     "disk": {
         "interval": 30,
-        "format": "/ {percentage_used}%",
+        "format": "/ {percentage_used}",
         "tooltip": true,
         "path": "/"
     },
     "disk#home": {
         "interval": 60,
-        "format": "~ {percentage_used}%",
+        "format": "~ {percentage_used}",
         "tooltip": true,
         "path": "/home"
     },
@@ -152,7 +152,7 @@
     },
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}%",
+        "format": "{icon}{percent}",
         "format-icons": [
             "󰃞 ",
             "󰃟 ",
@@ -171,9 +171,9 @@
             "critical": 16
         },
         "interval": 6,
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": "󱘖 {capacity}%",
+        "format": "{icon} {capacity}",
+        "format-charging": "󰂄 {capacity}",
+        "format-plugged": "󱘖 {capacity}",
         "format-alt": "󰁹 {time}",
         "format-icons": [
             "󰂎",
