@@ -1,137 +1,189 @@
 * {
     border: none;
-    border-radius: 8px;
-    font-family: "JetBrainsMono Nerd Font Propo";
-    font-size: 12px;
+    border-radius: 12px;
+    font-family: "JetBrainsMono Nerd Font Propo", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0);
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: 0.2s;
-    border-radius: 0px;
-    margin: 8px 8px 0 8px;
+    background: rgba(17, 17, 27, 0.6);
+    /* Crust base */
+    color: #cdd6f4;
 }
 
-window#waybar.hidden {
-    opacity: 0.9;
+tooltip {
+    background: rgba(30, 30, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
+
+#workspaces {
+    background-color: rgba(30, 30, 46, 0.5);
+    margin: 2px 2px;
+    padding: 2px 2px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 #workspaces button {
-    padding: 0 8px;
-    color: rgba(255, 255, 255, 0.7);
-    background: rgba(255, 255, 255, 0.1);
-    margin: 2px 2px;
+    padding: 0 6px;
+    color: #9399b2;
+    background: transparent;
+    margin: 0 2px;
     transition: all 0.3s ease;
+    border-radius: 10px;
 }
 
 #workspaces button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: inherit;
-    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 }
 
 #workspaces button.active {
-    color: rgba(255, 255, 255, 0.9);
-    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    background: linear-gradient(135deg, #b4befe 0%, #89b4fa 100%);
+    /* Lavendar-Blue gradient */
+    box-shadow: 0 0 10px rgba(180, 190, 254, 0.5);
+    min-width: 30px;
 }
 
 #workspaces button.urgent {
-    background-color: rgba(255, 69, 0, 0.6);
+    background: linear-gradient(135deg, #fab387 0%, #f38ba8 100%);
+    color: #ffffff;
 }
 
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 4px;
-}
-
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 4px;
-}
-
+/* Shared style for all modules */
 #clock,
+#language,
 #battery,
 #cpu,
 #memory,
 #disk,
+#disk.home,
 #temperature,
 #network,
 #bluetooth,
 #pulseaudio,
-#bluetooth,
+#pulseaudio.microphone,
+#wireplumber,
+#tray,
 #backlight,
-#custom-spotify,
-#language,
-#tray {
-    padding: 2px 6px;
-    margin: 4px 2px;
-    color: rgba(255, 255, 255, 0.9);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+#custom-spotify {
+    padding: 0 10px;
+    margin: 2px 3px;
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
+
+/* Gradients */
 
 #clock {
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, #cba6f7 0%, #f5c2e7 100%);
+    /* Mauve to Pink */
+    color: #1e1e2e;
+    margin-right: 0;
+    border-radius: 12px 0 0 12px;
+    padding-right: 5px;
 }
 
-#network {
-    color: #7dd3fc;
-}
-
-#bluetooth {
-    color: #89b4fa;
-    background-color: rgba(137, 180, 250, 0.15);
-}
-
-#pulseaudio {
-    color: #a78bfa;
-}
-
-#cpu {
-    color: #6ee7b7;
-}
-
-#memory {
-    color: #fca5a5;
-}
-
-#disk {
-    color: #89dceb;
-    background-color: rgba(137, 220, 235, 0.15);
-}
-
-#temperature {
-    color: #fde047;
-}
-
-#backlight {
-    color: #f38ba8;
-    background-color: rgba(243, 139, 168, 0.15);
-}
-
-#battery {
-    color: #86efac;
-}
-
-#battery.critical {
-    background: rgba(255, 0, 0, 0.2);
-    color: #fca5a5;
-}
-
-#battery.warning {
-    background: rgba(255, 165, 0, 0.2);
-    color: #fdba74;
+#language {
+    background: linear-gradient(135deg, #f5c2e7 0%, #cba6f7 100%);
+    /* Pink to Mauve (Reversed for continuity) */
+    color: #1e1e2e;
+    margin-left: 0;
+    border-radius: 0 12px 12px 0;
+    padding-left: 5px;
 }
 
 #custom-spotify {
-    color: #a6e3a1;
-    background-color: rgba(166, 227, 161, 0.15);
+    background: linear-gradient(135deg, #a6e3a1 0%, #94e2d5 100%);
+    /* Green to Teal */
+    color: #1e1e2e;
+}
+
+#pulseaudio {
+    background: linear-gradient(135deg, #89b4fa 0%, #74c7ec 100%);
+    /* Blue to Sapphire */
+    color: #1e1e2e;
+    margin-right: 0;
+    border-radius: 12px 0 0 12px;
+    padding-right: 5px;
+}
+
+#pulseaudio.microphone {
+    background: linear-gradient(135deg, #74c7ec 0%, #89b4fa 100%);
+    /* Sapphire to Blue (Reversed) */
+    color: #1e1e2e;
+    margin-left: 0;
+    border-radius: 0 12px 12px 0;
+    padding-left: 5px;
+}
+
+#backlight {
+    background: linear-gradient(135deg, #f9e2af 0%, #fab387 100%);
+    /* Yellow to Peach */
+    color: #1e1e2e;
+}
+
+#network,
+#bluetooth {
+    background: linear-gradient(135deg, #89dceb 0%, #74c7ec 100%);
+    /* Sky to Sapphire */
+    color: #1e1e2e;
+}
+
+#disk {
+    background: linear-gradient(135deg, #94e2d5 0%, #89dceb 100%);
+    /* Teal to Sky */
+    color: #1e1e2e;
+    margin-right: 0;
+    border-radius: 12px 0 0 12px;
+    padding-right: 5px;
+}
+
+#disk.home {
+    background: linear-gradient(135deg, #89dceb 0%, #94e2d5 100%);
+    /* Sky to Teal (Reversed) */
+    color: #1e1e2e;
+    margin-left: 0;
+    border-radius: 0 12px 12px 0;
+    padding-left: 5px;
+}
+
+#temperature {
+    background: linear-gradient(135deg, #eba0ac 20%, #f38ba8 100%);
+}
+
+#battery {
+    background: linear-gradient(135deg, #a6e3a1 0%, #94e2d5 100%);
+    color: #1e1e2e;
+}
+
+#battery.charging {
+    background: linear-gradient(135deg, #f9e2af 0%, #a6e3a1 100%);
+}
+
+#battery.warning {
+    background: linear-gradient(135deg, #fab387 0%, #f9e2af 100%);
+}
+
+#battery.critical {
+    background: linear-gradient(135deg, #f38ba8 0%, #eba0ac 100%);
+    color: #ffffff;
+    animation: blink 1s infinite alternate;
 }
 
 #tray {
-    background: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, #45475a 0%, #313244 100%);
+    /* Surface gradient */
 }
 
 #tray>.passive {
@@ -139,17 +191,12 @@ window#waybar.hidden {
 }
 
 #tray>.needs-attention {
-    /* -gtk-icon-effect: brighten; */
-    color: #f38ba8;
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
 }
 
-tooltip {
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: #ffffff;
-}
-
-tooltip label {
-    color: white;
+@keyframes blink {
+    to {
+        opacity: 0.5;
+    }
 }

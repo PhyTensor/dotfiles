@@ -2,32 +2,27 @@
     "layer": "bottom",
     "exclusive": true,
     "position": "top",
-    "spacing": 4,
+    "spacing": 2,
     "mode": "dock",
-    "height": 32,
-    "margin-top": 0,
+    "height": 26,
+    "margin-top": 2,
     "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,
+    "margin-left": 10,
+    "margin-right": 10,
     "passthrough": false,
     "gtk-layer-shell": true,
     "reload_style_on_change": true,
-    "modules-left": [
+    "modules-left": [],
+    "modules-center": [
         "clock",
         "hyprland/language",
-        "custom/spotify"
-    ],
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    "modules-right": [
+        "custom/spotify",
+        "hyprland/workspaces",
         "pulseaudio",
         "pulseaudio#microphone",
         "backlight",
         "network",
         "bluetooth",
-        // "cpu",
-        // "memory",
         "disk",
         "disk#home",
         "temperature",
@@ -35,6 +30,7 @@
         "custom/battery-notification",
         "tray"
     ],
+    "modules-right": [],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
