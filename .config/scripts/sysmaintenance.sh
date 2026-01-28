@@ -4,7 +4,7 @@ echo "[ + ] Updating mirrorlist"
 sudo reflector --protocol https --country Kenya,Germany,Bahrain,Netherlands --sort rate --threads $(nproc) --save /etc/pacman.d/mirrorlist
 
 echo "[ + ] Updating system"
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
 echo "[ + ] Clearing pacman cache"
 pacman_cache_space_used="$(du -sh /var/cache/pacman/pkg/)"

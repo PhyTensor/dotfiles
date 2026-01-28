@@ -63,8 +63,8 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "{icon}",
-        "format-ethernet": "󰈀 ",
-        "format-disconnected": "󰖪 ",
+        "format-ethernet": " 󰈀 ",
+        "format-disconnected": " 󰖪 ",
         "tooltip-format": " {ifname} via {gwaddri}",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) - {ifname} via {gwaddr}",
@@ -72,16 +72,16 @@
         "nospacing": 1,
         "interval": 5,
         "format-icons": [
-            "󰤯 ",
-            "󰤟 ",
-            "󰤢 ",
-            "󰤥 ",
-            "󰤨 "
+            " 󰤯 ",
+            " 󰤟 ",
+            " 󰤢 ",
+            " 󰤥 ",
+            " 󰤨 "
         ]
     },
     "pulseaudio": {
         "format": "{icon}{volume}",
-        "format-muted": "󰖁 ",
+        "format-muted": " 󰖁 ",
         "on-click": "pamixer -t",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
@@ -105,7 +105,7 @@
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}",
-        "format-source-muted": " ",
+        "format-source-muted": "  ",
         "on-click": "pamixer --default-source -t",
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",

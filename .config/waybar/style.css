@@ -159,7 +159,8 @@ tooltip label {
 }
 
 #temperature {
-    background: linear-gradient(135deg, #eba0ac 20%, #f38ba8 100%);
+    background: linear-gradient(135deg, #89b4fa 20%, #f38ba8 100%);
+    color: #1e1e2e;
 }
 
 #battery {
