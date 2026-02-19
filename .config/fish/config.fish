@@ -29,9 +29,11 @@ alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listi
 alias l. 'eza -alhd --color=always --group-directories-first --icons .*' # show only dotfiles
 alias l 'eza -alh --color=always --long --git --no-filesize --icons --no-time --no-user --no-permissions'
 
-alias vim 'nvim'
+# alias vim 'nvim'
 
 alias cat 'bat --style header --style snip --style changes --style header'
+
+alias y 'yazi'
 
 # Common use
 alias .. 'cd ..'
@@ -99,6 +101,8 @@ alias glg 'git log --oneline --decorate --graph --all --stat --date=short'
 # %n -- new line
 # %s -- commit message
 
+alias myip 'curl https://icanhazip.com'
+
 # ANDROID
 # set ANDROID_HOME = $HOME/Android/Sdk/
 # set PATH $PATH $ANDROID_HOME $HOME/Android/Sdk/platform-tools/
@@ -133,20 +137,21 @@ set PATH $PATH $HOME/.dotnet/tools/
 #end
 
 # STARSHIP
-#starship init fish | source
+# starship init fish | source
 # starship prompt
 if status is-interactive
     # Commands to run in interactive sessions can go here
-     source ('/usr/bin/starship' init fish --print-full-init | psub)
+    # source ("/usr/bin/starship" init fish --print-full-init | psub)
+    starship init fish | source
 
     # ZOXIDE
     zoxide init fish | source
 
     # Atuin
-    atuin init fish | source
+    # atuin init fish | source
 end
 
-set MANPAGER "nvim +Man!"
+# set MANPAGER "nvim +Man!"
 
 # FZF shell integration
 # Set up fzf key bindings
@@ -154,17 +159,19 @@ fzf --fish | source
 
 # YAZI
 # Shell wrapper for yazi. We suggest using this y shell wrapper that provides the ability to change the current working directory when exiting Yazi.
-function y
-	set tmp (mktemp -t "yazi-cwd.XXXXXX")
-	yazi $argv --cwd-file="$tmp"
-	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-		builtin cd -- "$cwd"
-	end
-	rm -f -- "$tmp"
-end
+# function y
+# 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+# 	yazi $argv --cwd-file="$tmp"
+# 	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+# 		builtin cd -- "$cwd"
+# 	end
+# 	rm -f -- "$tmp"
+# end
 
 
 # TMUX-SESSIONISER
-set PATH "$PATH":"$HOME/.config/scripts/"
-bind \cf "tmux-sessioniser.sh"
+# set PATH "$PATH":"$HOME/.config/scripts/"
+# bind \cf "tmux-sessioniser.sh"
 
+
+set PATH $PATH /home/karoki/.local/bin

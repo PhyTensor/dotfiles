@@ -11,6 +11,11 @@
 	compression = 9 # level 9 to trade some CPU to speed up network transfers and save some disk space
 	whitespace = error # get warning when you try to commit whitespace
 	preloadindex = true # load index into memory improving performance
+    excludesfile = ~/.gitignore
+
+[rerere]
+    enabled = true
+    autoupdate = true
 
 [gpg]
 	format = ssh
@@ -18,12 +23,14 @@
 
 [commit]
 	gpgsign = true # sign commits with GPG
+    verbose = true # show commit message in output
 
 [branch]
 	sort = -committerdate # sort branches by commit date
 
 [tag]
-	sort = -taggerdate # more recent tags are shown first
+	# sort = -taggerdate # more recent tags are shown first
+    sort = version:refname
 	gpgsign = true # sign tags with GPG
 
 [status]
@@ -32,6 +39,9 @@
 	showUntrackedFiles = all # show all untracked files without grouping them into directories
 
 [diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
 	context = 3 # reduce number of context lines so its more compact
 	renames = copies # detect renames and copies to make output cleaner
 	interHunkContext = 10 # near hunks of code get grouped together
@@ -45,13 +55,26 @@
 	default = current # pull from current branch by default
 	rebase = true # rebase instead of merge
 
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
 [log]
 	abbrevCommit = true # show abbreviated commits hashes -- shorten commit hashes
 	graphColors = blue,yellow,cyan,magenta,green,red # improve color ordering
 
 [rebase]
 	autoStash = true # automatically stash unstaged local changes and apply rebase after
+    autoSquash = true
+    updateRefs = true
 	missingCommitsCheck = warn # warn me if I accidentally remove some commits whie editing
+
+[help]
+    autocorrect = prompt
+
+[column]
+    ui = auto
 
 [interactive]
 	diffFilter = diff-so-fancy --patch

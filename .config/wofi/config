@@ -1,25 +1,28 @@
-hide_scroll=true
-width=630
-height=350
-lines=8
-line_wrap=word
-term=kitty
-always_parse_args=false
-show_all=true
-print_command=true
-layer=overlay
-display_generic=false
-key_expand=Tab
+
+# Window Configuration
+width=750
+height=450
 location=center
-show=drun
-prompt=Search...
-filter_rate=100
-allow_markup=true
-no_actions=true
-halign=fill
 orientation=vertical
-content_halign=fill
-insensitive=true
+halign=fill
+line_wrap=off
+dynamic_lines=true
+
+# Search & Interaction
+mode=drun
 allow_images=true
 image_size=48
+insensitive=true
+allow_markup=true
+key_expand=Tab
+
+# Appearance
 gtk_dark=true
+layer=overlay
+hide_scroll=true
+no_actions=true
+prompt=Apps
+term=ghostty
+
+# Filter
+filter_rate=100
