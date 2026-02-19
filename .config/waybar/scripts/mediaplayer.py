@@ -7,10 +7,9 @@ import argparse
 import logging
 import sys
 import signal
-import gi
 import json
 import os
-from typing import List
+from typing import List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -18,12 +17,11 @@ def signal_handler(sig, frame):
     logger.info("Received signal to stop, exiting")
     sys.stdout.write("\n")
     sys.stdout.flush()
-    # loop.quit()
     sys.exit(0)
 
 
 class PlayerManager:
-    def __init__(self, selected_player=None, excluded_player=[]):
+    def __init__(self, selected_player: Optional[str] = None, excluded_player: Optional[str] = None):
         self.manager = Playerctl.PlayerManager()
         self.loop = GLib.MainLoop()
         self.manager.connect(
@@ -64,12 +62,13 @@ class PlayerManager:
     def get_players(self) -> List[Player]:
         return self.manager.props.players
 
-    def write_output(self, text, player):
+    def write_output(self, text, player, tooltip=""):
         logger.debug(f"Writing output: {text}")
 
         output = {"text": text,
                   "class": "custom-" + player.props.player_name,
-                  "alt": player.props.player_name}
+                  "alt": player.props.player_name,
+                  "tooltip": tooltip}
 
         sys.stdout.write(json.dumps(output) + "\n")
         sys.stdout.flush()
@@ -108,30 +107,50 @@ class PlayerManager:
         else:
             self.clear_output()
 
+    @staticmethod
+    def _escape_pango(text: str) -> str:
+        """Escape characters that interfere with Pango markup."""
+        text = text.replace("&", "&amp;")
+        text = text.replace("<", "&lt;")
+        text = text.replace(">", "&gt;")
+        return text
+
     def on_metadata_changed(self, player, metadata, _=None):
         logger.debug(f"Metadata changed for player {player.props.player_name}")
         player_name = player.props.player_name
         artist = player.get_artist()
         title = player.get_title()
-        title = title.replace("&", "&amp;")
 
         track_info = ""
+        tooltip = ""
         if player_name == "spotify" and "mpris:trackid" in metadata.keys() and ":ad:" in player.props.metadata["mpris:trackid"]:
             track_info = "Advertisement"
-        elif artist is not None and title is not None:
-            track_info = f"{artist} - {title}"
-        else:
-            track_info = title
+            tooltip = "Spotify Advertisement"
+        elif artist and title:
+            safe_artist = self._escape_pango(artist)
+            safe_title = self._escape_pango(title)
+            track_info = f"{safe_artist} - {safe_title}"
+            tooltip = f"{artist} - {title}"
+        elif title:
+            track_info = self._escape_pango(title)
+            tooltip = title
+        elif artist:
+            track_info = self._escape_pango(artist)
+            tooltip = artist
 
         if track_info:
             if player.props.status == "Playing":
-                track_info = " " + track_info
+                track_info = "󰐊 " + track_info
             else:
-                track_info = " " + track_info
+                track_info = "󰏤 " + track_info
+
+            status_label = player.props.status or "Unknown"
+            tooltip = f"{tooltip}\n{player_name} · {status_label}"
+
         # only print output if no other player is playing
         current_playing = self.get_first_playing_player()
         if current_playing is None or current_playing.props.player_name == player.props.player_name:
-            self.write_output(track_info, player)
+            self.write_output(track_info, player, tooltip)
         else:
             logger.debug(f"Other player {current_playing.props.player_name} is playing, skipping")
 
@@ -157,7 +176,7 @@ def parse_arguments():
     # Increase verbosity with every occurrence of -v
     parser.add_argument("-v", "--verbose", action="count", default=0)
 
-    parser.add_argument("-x", "--exclude", "- Comma-separated list of excluded player")
+    parser.add_argument("-x", "--exclude", help="Comma-separated list of excluded players")
 
     # Define for which player we"re listening
     parser.add_argument("--player")
