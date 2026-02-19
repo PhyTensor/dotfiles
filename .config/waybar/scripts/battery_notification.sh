@@ -29,7 +29,10 @@ elif [ "$battery_status" != "Charging" ] && [ "$battery_capacity" -le 15 ]; then
     if should_notify /tmp/critical_battery_notified 2; then
         send_notification "$battery_capacity% - System will hibernate in 60 seconds" # "$icon_critical"
         touch /tmp/critical_battery_notified
-        sleep 60 && systemctl hibernate
+        sleep 60
+        send_notification "System is Hibernating Now"
+        sleep 3
+        systemctl hibernate
     fi
 elif [ "$battery_status" != "Charging" ] && [ "$battery_capacity" -le 21 ]; then
     # Notify for critical battery
