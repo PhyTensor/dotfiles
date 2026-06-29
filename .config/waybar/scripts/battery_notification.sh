@@ -10,11 +10,11 @@
 # --- Configuration ---
 # How long (in seconds) to wait before sending the same notification again.
 # Prevents notification spam since Waybar polls this script repeatedly.
-NOTIFY_COOLDOWN=30 # 1/5 minutes
+NOTIFY_COOLDOWN=17 # in seconds
 
 # Battery percentage at or above which (while charging) the user is reminded
 # to unplug. Keeping lithium-ion batteries below ~80-85% extends their lifespan.
-FULL_THRESHOLD=83
+FULL_THRESHOLD=84
 
 # Battery percentage at or below which (while discharging) the user gets a
 # gentle "plug in soon" reminder. Not urgent.

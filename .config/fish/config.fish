@@ -175,3 +175,7 @@ fzf --fish | source
 
 
 set PATH $PATH /home/karoki/.local/bin
+
+# bun
+set --export BUN_INSTALL "$HOME/.local/share/reflex/bun"
+set --export PATH $BUN_INSTALL/bin $PATH

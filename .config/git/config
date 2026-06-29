@@ -1,6 +1,6 @@
 [user]
 	name = PhyTensor
-	email = phystroq@gmail.com
+	email = karoki.tphy@gmail.com
 	signingkey = ~/.ssh/ssh_github_sign.pub # sign commits with ssh key
 
 [init]

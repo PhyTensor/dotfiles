@@ -24,6 +24,9 @@ PS1='[\u@\h \W]\$ '
 # unset __conda_setup
 # <<< conda initialize <<<
 
+# Add .NET Core SDK tools
+export PATH="$PATH:/home/karoki/.dotnet/tools"
+
 eval "$(starship init bash)"
 
 export MANPAGER='nvim +Man!'
