@@ -31,3 +31,4 @@ eval "$(starship init bash)"
 
 export MANPAGER='nvim +Man!'
 
+. "$HOME/.aftman/env"
