@@ -112,10 +112,22 @@ alias myip 'curl https://icanhazip.com'
 # set PATH $PATH /opt/flutter/bin/
 # set PATH $PATH $HOME/.pub-cache/bin/
 
-
 # DOTNET TOOLS
 set PATH $PATH $HOME/.dotnet/tools/
 
+# TMUX-SESSIONISER
+# set PATH "$PATH":"$HOME/.config/scripts/"
+# bind \cf "tmux-sessioniser.sh"
+
+# Local bin
+set PATH $PATH /home/karoki/.local/bin
+
+# bun
+set --export BUN_INSTALL "$HOME/.local/share/reflex/bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# Cargo
+set PATH $PATH $HOME/.cargo/bin/
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -168,10 +180,3 @@ fzf --fish | source
 # 	rm -f -- "$tmp"
 # end
 
-
-# TMUX-SESSIONISER
-# set PATH "$PATH":"$HOME/.config/scripts/"
-# bind \cf "tmux-sessioniser.sh"
-
-
-set PATH $PATH /home/karoki/.local/bin

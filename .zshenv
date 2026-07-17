@@ -19,3 +19,4 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
 
+. "$HOME/.aftman/env"
