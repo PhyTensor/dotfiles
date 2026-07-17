@@ -2,8 +2,8 @@
 input {
     keyboard {
 
-        // repeat-delay 200
-        // repeat-rate 22
+        repeat-delay 250
+        repeat-rate 50
 
         xkb {
             // You can set rules, model, layout, variant and options.
@@ -39,7 +39,7 @@ input {
 
         // accel-profile "flat" // Disable acceleration
         scroll-method "two-finger"
-        // disabled-on-external-mouse
+        disabled-on-external-mouse
     }
 
     mouse {
@@ -110,6 +110,7 @@ output "HDMI-A-1" {
     transform "normal"
     position x=0 y=0
     focus-at-startup
+	variable-refresh-rate on-demand=true
 
     hot-corners {
         off
@@ -137,7 +138,7 @@ layer-rule {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 8
+    gaps 6
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -187,7 +188,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4.1
+        width 3.14
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -211,7 +212,9 @@ layout {
         // Changing the color space is also supported, check the wiki for more info.
         //
         // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
-        active-gradient from="#f00f" to="#0f05" angle=45 in="oklch longer hue"
+        // active-gradient from="#f00f" to="#0f05" angle=45 in="oklch longer hue"
+		// solid color is GPU-free; keeps the color from active-color
+		active-gradient from="#7fc8ff" to="#a0d8ff" angle=180
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -327,6 +330,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
+// some Proton/Steam Play games misrender without CSD
 prefer-no-csd
 
 // You can change the path where screenshots are saved.
@@ -392,6 +396,15 @@ animations {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
+// Example: enable rounded corners for all windows.
+// Games with specific aspect ratios or fullscreen modes may get
+// cropped or have rendering artifacts.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 /-window-rule {
@@ -416,7 +429,7 @@ window-rule {
     opacity 0.88
 
     background-effect {
-        blur false
+        blur true
     }
 }
 
@@ -435,17 +448,30 @@ window-rule {
     open-floating true
 }
 
-// Disable tiling for Assetto Corsa and Content Manager
 window-rule {
-    match app-id="steam_app_244210"
-    match title="Content Manager"
-    // block-out-tiling true
+    match app-id="^steam$"
+    open-floating true
 }
 
-// Ensure the game opens in the center and intercepts mouse inputs
+window-rule {
+    match app-id=r#"^steam_app_\d+$"#
+    open-floating true
+    variable-refresh-rate true  // if you set up on-demand VRR
+    block-out-from "screen-capture"
+}
+
+window-rule {
+    match app-id=r#"^steam_app_"#
+    geometry-corner-radius 0
+    clip-to-geometry false
+    variable-refresh-rate true  // if you set up on-demand VRR
+}
+
+// Ensure the Assetto Corsa opens in the center and intercepts mouse inputs
 window-rule {
     match app-id="steam_app_244210"
     open-floating true
+	variable-refresh-rate true
 }
 
 // Example: block out two password managers from screen capture.
@@ -458,13 +484,6 @@ window-rule {
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
-}
-
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
 }
 
 window-rule {
@@ -746,4 +765,13 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Backspace { power-off-monitors; }
+
+	// Launch Steam Big Picture in Gamescope (avoid composition overhead)
+	// Requires gamescope installed. Adjust -W/-H/-r to your display.
+	// Mod+Shift+G { spawn-sh "gamescope -W 1920 -H 1080 -r 60 -- steam -gamepadui"; }
+	// Mod+Shift+G hotkey-overlay-title="Gamescope Steam" { spawn-sh "gamescope -W 1366 -H 768 -r 60 -- steam -gamepadui"; }
+	// Mod+G { spawn-sh "gamescope -W 1366 -H 768 -r 60 -- steam"; }
+
+	// Toggle MangoHud overlay (requires MANGOHUD=1 set on game launch or mangohudctl)
+	// Mod+F12 hotkey-overlay-title="Toggle MangoHud" { spawn-sh "mangohudctl toggle"; }
 }
