@@ -22,12 +22,12 @@ end
 
 ## Usefule aliases
 ## Replace ls with eza
-alias ls 'eza -alh --color=always --group-directories-first --icons' # preferred listing
-alias la 'eza -a --color=always --group-directories-first --icons' # all files and dirs
-alias ll 'eza -lh --color=always --group-directories-first --icons' # long format
-alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listing
-alias l. 'eza -alhd --color=always --group-directories-first --icons .*' # show only dotfiles
-alias l 'eza -alh --color=always --long --git --no-filesize --icons --no-time --no-user --no-permissions'
+alias ls 'eza -alh --color=always --group-directories-first --icons=always' # preferred listing
+alias la 'eza -a --color=always --group-directories-first --icons=always' # all files and dirs
+alias ll 'eza -lh --color=always --group-directories-first --icons=always' # long format
+alias lt 'eza -aT --color=always --group-directories-first --icons=always' # tree listing
+alias l. 'eza -alhd --color=always --group-directories-first --icons=always .*' # show only dotfiles
+alias l 'eza -alh --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
 
 # alias vim 'nvim'
 
@@ -106,6 +106,10 @@ alias myip 'curl https://icanhazip.com'
 # ANDROID
 # set ANDROID_HOME = $HOME/Android/Sdk/
 # set PATH $PATH $ANDROID_HOME $HOME/Android/Sdk/platform-tools/
+set -gx ANDROID_HOME $HOME/.bubblewrap/android_sdk
+set -gx ANDROID_SDK_ROOT $ANDROID_HOME
+set -gx JAVA_HOME $HOME/.bubblewrap/jdk/jdk-17.0.11+9
+set -gx PATH $PATH $ANDROID_HOME/platform-tools $JAVA_HOME/bin
 
 # FLUTTER
 # set PATH $PATH /usr/local/bin/flutter/bin/
