@@ -779,3 +779,4 @@ binds {
 	// Toggle MangoHud overlay (requires MANGOHUD=1 set on game launch or mangohudctl)
 	// Mod+F12 hotkey-overlay-title="Toggle MangoHud" { spawn-sh "mangohudctl toggle"; }
 }
+

@@ -106,9 +106,11 @@ alias myip 'curl https://icanhazip.com'
 # ANDROID
 # set ANDROID_HOME = $HOME/Android/Sdk/
 # set PATH $PATH $ANDROID_HOME $HOME/Android/Sdk/platform-tools/
-set -gx ANDROID_HOME $HOME/.bubblewrap/android_sdk
+# set -gx ANDROID_HOME $HOME/.bubblewrap/android_sdk
+set -gx ANDROID_HOME $HOME/Android/
 set -gx ANDROID_SDK_ROOT $ANDROID_HOME
-set -gx JAVA_HOME $HOME/.bubblewrap/jdk/jdk-17.0.11+9
+# set -gx JAVA_HOME $HOME/.bubblewrap/jdk/jdk-17.0.11+9
+set -gx JAVA_HOME /usr/lib/jvm/java-17-openjdk/
 set -gx PATH $PATH $ANDROID_HOME/platform-tools $JAVA_HOME/bin
 
 # FLUTTER
