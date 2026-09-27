@@ -32,3 +32,7 @@ eval "$(starship init bash)"
 export MANPAGER='nvim +Man!'
 
 . "$HOME/.aftman/env"
+
+# Android SDK (Expo / React Native builds)
+export ANDROID_HOME="$HOME/.bubblewrap/android_sdk"
+export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/36.0.0:$PATH"

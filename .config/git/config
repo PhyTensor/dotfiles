@@ -12,6 +12,7 @@
 	whitespace = error # get warning when you try to commit whitespace
 	preloadindex = true # load index into memory improving performance
     excludesfile = ~/.gitignore
+	pager = delta
 
 [rerere]
     enabled = true
@@ -77,24 +78,41 @@
     ui = auto
 
 [interactive]
-	diffFilter = diff-so-fancy --patch
+	# Use delta's color engine during interactive staging (e.g., git add -p)
+	diffFilter = delta --color-only
+	# diffFilter = diff-so-fancy --patch
 	singlekey = true # use single key to exit from diff view
 
-[pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	branch = false # disable default pager. I will call it myself when I need it
-	tag = false
+[delta]
+	# Enable side-by-side split screen view
+    side-by-side = true
+	# Show clean line numbers columns
+    line-numbers = true
+	# Use 'n' and 'N' keys to move between file changes
+    navigate = true
+	# Set a theme (Run `delta --list-syntax-themes` to see choices)
+	# syntax-theme = Dracula
+    dark = true      # or light = true, or omit for auto-detection
 
-[diff-so-fancy]
-	markEmptyLines = false
+[merge]
+	# Improves readability of conflict markers
+    conflictstyle = zdiff3
 
-[color "diff"]
-	meta = black bold # yellow bold
-	frag = magenta bold # line info
-	context = white
-	whitespace = yellow reverse
-	old = red # deletions
-    	new = green # additions
+# [pager]
+# 	diff = diff-so-fancy | less --tabs=4 -RFX
+# 	branch = false # disable default pager. I will call it myself when I need it
+# 	tag = false
+#
+# [diff-so-fancy]
+# 	markEmptyLines = false
+#
+# [color "diff"]
+# 	meta = black bold # yellow bold
+# 	frag = magenta bold # line info
+# 	context = white
+# 	whitespace = yellow reverse
+# 	old = red # deletions
+#     	new = green # additions
 
 [color "decorate"]
 	HEAD = red
