@@ -31,5 +31,11 @@ hl.window_rule({
     float = true,
 })
 
+hl.window_rule({
+	name = "zen_browser_starting_mode",
+	match = { class = "^Zen Browser$" },
+	scrolling_width = 1.0,
+})
+
 -- hl.window_rule({ match = { class = ".*" }, fullscreen = true })
 

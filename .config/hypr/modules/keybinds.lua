@@ -53,6 +53,10 @@ for i = 1, 9 do
     hl.bind(super .. " + SHIFT + " .. i,     hl.dsp.window.move({ workspace = i }))
 end
 
+-- Column Widths
+hl.bind(super .. " + C", hl.dsp.layout("colresize +conf"))
+hl.bind(super .. " + SHIFT + C", hl.dsp.layout("colresize -conf"))
+
 -- Fullscreen (toggle between workspace/monitor fullscreen)
 hl.bind(super .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(super .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle" }))
