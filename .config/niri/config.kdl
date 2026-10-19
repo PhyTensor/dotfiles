@@ -320,6 +320,10 @@ overview {
 // spawn-at-startup "waybar"
 spawn-at-startup "noctalia"
 
+// Niri needs your desktop session environment to be registered with D-Bus so applications (like browsers, OBS, or Discord) can talk to the screen-sharing portal.
+spawn-at-startup "dbus-update-activation-environment" "--all"
+spawn-at-startup "/usr/libexec/xdg-desktop-portal" "-r"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 // spawn-sh-at-startup "qs -c noctalia-shell"
